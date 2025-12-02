@@ -51,7 +51,7 @@ export default {
       localStorage.setItem("agentCode", currentRouter.query.code);
     }
     let link = document.head.querySelector("link");
-    link.href = require(`@/assets/image/${this.itemname}/favicon.png`);
+    link.href = require(`@/assets/image/${this.itemname}/${this.itemname}logo.png`);
     document.title = this.itemname;
     if (this.itemname == "TikTok" || this.itemname == "Spar") {
       document.documentElement.style.setProperty(`--color-main`, "#000");

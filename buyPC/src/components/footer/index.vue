@@ -5,17 +5,12 @@
         <div class="footer-title flex-start">
           <img
             v-if="itemname !== 'Mbuy'"
-            :src="require(`@/assets/image/${itemname}/${itemname}logo.png`)"
+            :src="require(`@/assets/image/${itemname}/logo.png`)"
             :style="'width: 100%;height: 50px;' "
             alt
             @click="goHome"
           />
-          <img
-            v-else
-            :src="require(`@/assets/image/${itemname}/${itemname}logo.png`)"
-            alt
-            @click="goHome"
-          />
+          <img v-else :src="require(`@/assets/image/${itemname}/logo.png`)" alt @click="goHome" />
           <p>{{ $t("message.home.getCoupons") }}</p>
           <el-input
             v-model="email"

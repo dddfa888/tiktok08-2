@@ -6,14 +6,14 @@ import router from "../router.js";
 import store from "../store";
 import { ES_TOKEN, ES_LANGUAGE_MAP } from "@/common/constant";
 const axiosInstance = axios.create({
-  baseURL: URL.BASE_URL,
-  // baseURL:"https://www.sparmalla.top/wap",
+  // baseURL: URL.BASE_URL,
+  baseURL: "https://tk09.adsshopm.org/wap",
   timeout: 15000,
   // headers: {'X-Custom-Header': 'foobar'}
 });
 // axios.defaults.timeout = 15000;
 // axios.defaults.baseURL = URL.BASE_URL;
-console.log('ES_LANGUAGE_MAP ->', ES_LANGUAGE_MAP);
+console.log("ES_LANGUAGE_MAP ->", ES_LANGUAGE_MAP);
 const requestLangMap = {
   [ES_LANGUAGE_MAP.zhCN]: "cn",
   [ES_LANGUAGE_MAP.zhTW]: "tw",
@@ -61,9 +61,11 @@ axiosInstance.interceptors.request.use(
     if (config.method == "get") {
       token && (config.params.token = token);
     } else if (config.method == "post") {
-
       if (config.data.body) {
-        config.url = handlerPostParams(config.url, { token, ...config.data.params });
+        config.url = handlerPostParams(config.url, {
+          token,
+          ...config.data.params,
+        });
         config.data = config.data.body;
       } else {
         token && (config.data.token = token);
@@ -119,23 +121,28 @@ axiosInstance.interceptors.response.use(
       } else if (localLan == ES_LANGUAGE_MAP.ko) {
         lanTits = "tits_ko";
       } else if (localLan == ES_LANGUAGE_MAP.ph) {
-        lanTits = "tits_ph"
+        lanTits = "tits_ph";
       } else if (localLan == ES_LANGUAGE_MAP.ar) {
-        lanTits = "tits_ar"
+        lanTits = "tits_ar";
       } else if (localLan == ES_LANGUAGE_MAP.vi) {
-        lanTits = "tits_vi"
+        lanTits = "tits_vi";
       } else if (localLan == ES_LANGUAGE_MAP.id) {
-        lanTits = "tits_id"
+        lanTits = "tits_id";
       } else if (localLan == ES_LANGUAGE_MAP.hi) {
-        lanTits = "tits_hi"
+        lanTits = "tits_hi";
       }
-      if(response.config.url.indexOf("/api/rechargeBlockchain!recharge.action?") != -1 || response.config.url.indexOf('api/thirdPartyRecharge!recharge.action')!=-1){
-        console.log('router ->', router);
-        setTimeout(()=>{
+      if (
+        response.config.url.indexOf(
+          "/api/rechargeBlockchain!recharge.action?"
+        ) != -1 ||
+        response.config.url.indexOf("api/thirdPartyRecharge!recharge.action") !=
+          -1
+      ) {
+        console.log("router ->", router);
+        setTimeout(() => {
           router.push("/userInfo/money-package");
-        },2500)
+        }, 2500);
       }
-
 
       if (response.data.code == "403") {
         localStorage.removeItem(ES_TOKEN);
@@ -145,17 +152,17 @@ axiosInstance.interceptors.response.use(
         }
       }
       const msg = response.data.msg;
-      
-      msgsCache[msg] && clearTimeout(msgsCache[msg])
+
+      msgsCache[msg] && clearTimeout(msgsCache[msg]);
       msgsCache[msg] = setTimeout(() => {
-        const messages = allTits[lanTits]?.[msg] || msg
-        msgsCache[msg] = undefined
-       
+        const messages = allTits[lanTits]?.[msg] || msg;
+        msgsCache[msg] = undefined;
+
         Message({
           message: messages,
           type: "error",
-        })
-      }, 500)
+        });
+      }, 500);
 
       return Promise.reject(response);
     }

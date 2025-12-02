@@ -1,8 +1,7 @@
 <template>
-
   <div>
     <div
-    v-if="!source.delete_status"
+      v-if="!source.delete_status"
       :key="source.id"
       :class="`${
         source.isSelf
@@ -10,19 +9,10 @@
           : 'customer-service-item customer-service-left'
       }`"
     >
-      <div
-        v-if="source.isSelf"
-        class="customer-service-item-message flex-start"
-      >
-        <div
-          v-if="source.contentType === 'img'"
-          class="customer-service-item-image"
-        >
+      <div v-if="source.isSelf" class="customer-service-item-message flex-start">
+        <div v-if="source.contentType === 'img'" class="customer-service-item-image">
           <h3>{{ $formatZoneDate(source.date) }}</h3>
-          <el-image
-            :src="source.content"
-            :preview-src-list="[source.content]"
-          />
+          <el-image :src="source.content" :preview-src-list="[source.content]" />
         </div>
         <div v-else class="customer-service-item-text">
           <h3>{{ $formatZoneDate(source.date) }}</h3>
@@ -31,22 +21,16 @@
         </div>
         <el-image class="user-icon" :src="userAvater" />
       </div>
-     
+
       <div v-else class="customer-service-item-message flex-start">
         <el-image
           :class="itemname=='FamilyMart' ?'user-icon martIcon':'user-icon'"
-         :src="itemname=='FamilyShop' ? require(`@/assets/image/${itemname}/sevice.png`):itemname =='TikTok' ?require(`@/assets/image/${itemname}/${itemname}logo.png`) : itemname =='FamilyMart' || 'Shopee' ?require(`@/assets/image/${itemname}/${itemname}logo.svg`) :require(`@/assets/image/${itemname}/logo.svg`)"
+          :src="itemname=='FamilyShop' ? require(`@/assets/image/${itemname}/sevice.png`):itemname =='TikTok' ?require(`@/assets/image/${itemname}/${itemname}logo.png`) : itemname =='FamilyMart' || 'Shopee' ?require(`@/assets/image/${itemname}/${itemname}logo.svg`) :require(`@/assets/image/${itemname}/logo.svg`)"
         />
-        <div
-          v-if="source.contentType === 'img'"
-          class="customer-service-item-image"
-        >
+        <div v-if="source.contentType === 'img'" class="customer-service-item-image">
           <h3>{{ $formatZoneDate(source.date) }}</h3>
-           <!-- <h3>{{calculateTime(source.date)}}</h3> -->
-          <el-image
-            :src="source.content"
-            :preview-src-list="[source.content]"
-          />
+          <!-- <h3>{{calculateTime(source.date)}}</h3> -->
+          <el-image :src="source.content" :preview-src-list="[source.content]" />
         </div>
         <div v-else class="customer-service-item-text">
           <h3>{{ $formatZoneDate(source.date) }}</h3>
@@ -65,25 +49,24 @@ import { mapGetters } from "vuex";
 export default {
   name: "EsChartItem",
   props: {
-    source: Object,
+    source: Object
   },
   computed: {
     ...mapGetters({
-      userInfo: "userInfo",
-    }),
+      userInfo: "userInfo"
+    })
   },
   data() {
     return {
       itemname: process.env.VUE_APP_ITEM_NAME,
       imagePreviewId: "",
       imagePreviewStatus: "",
-      userAvater: "",
+      userAvater: ""
     };
   },
   created() {
-    this.userAvater = require(`@/assets/image/avatar/${
-      this.userInfo.avatar || "1"
-    }.png`);
+    this.userAvater = require(`@/assets/image/avatar/${this.userInfo.avatar ||
+      "1"}.png`);
   },
   methods: {
     calculateTime(time) {
@@ -99,8 +82,8 @@ export default {
       } else {
         return getFullDate(new Date(time * 1000));
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -110,7 +93,7 @@ export default {
     display: flex;
     align-items: flex-start;
     margin-bottom: 25px;
-    .martIcon{
+    .martIcon {
       border-radius: 0% !important;
     }
     .user-icon {
@@ -118,7 +101,6 @@ export default {
       height: 45px;
       border-radius: 50%;
     }
-   
 
     &-message {
       align-items: flex-start;
