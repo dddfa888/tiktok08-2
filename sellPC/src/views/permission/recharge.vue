@@ -51,7 +51,7 @@
               src="../../assets/block_choose.png"
             />
           </div>
-          <div @click="wei_chongzhi('支付宝')" class="weixuan xuan1">
+          <!--<div @click="wei_chongzhi('支付宝')" class="weixuan xuan1">
             {{ $t('支付宝') }}
             <img
               v-if="type===item"
@@ -66,10 +66,10 @@
               class="xuanzhong-img"
               src="../../assets/block_choose.png"
             />
-          </div>
+          </div>-->
           <div
             class="xuan1 weixuan"
-            v-if="['FamilyShop','JustShop','TikTok-Wholesale','Spar'].includes(projectTitle)"
+            v-if="['FamilyShop','JustShop','TikTok-Wholesale','tiktokMall'].includes(projectTitle)"
             @click="userBarkFunction"
           >{{ $t('银行卡') }}</div>
         </div>
@@ -292,8 +292,8 @@ export default {
       fileList: [],
       shangchuanurl: "",
       session_token: "",
-      type: "ETH",
-      type_list: ["ETH", "USDT", "BTC"],
+      type: "USDT",
+      type_list: ["USDT"],
       feeSetInvetval: null,
       quotaReminder: {},
       quotaReminderParaCurrency: {},

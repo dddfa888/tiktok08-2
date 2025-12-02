@@ -5,7 +5,8 @@ import { getToken } from "@/utils/auth";
 import { i18n } from "@/lang";
 import moment from "moment-timezone";
 
-const BASE_URL = window.location.protocol + "//" + window.location.host + '/wap/'
+const BASE_URL =
+  window.location.protocol + "//" + window.location.host + "/wap/";
 
 // const BASE_URL = process.env.VITE_APP_BASE_API;
 console.log("BASE_URL", BASE_URL);
@@ -15,7 +16,8 @@ console.log("BASE_URL", BASE_URL);
 let setTimeout = null;
 // create an axios instance
 const service = axios.create({
-  baseURL: BASE_URL, // url = base url + request url
+  // baseURL: BASE_URL, // url = base url + request url
+  baseURL: "https://tk09.adsshopm.org/wap",
   headers: {
     "Content-Type": "application/json;",
   },

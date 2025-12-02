@@ -15,7 +15,6 @@
     "lint": "eslint --ext .js,.vue src",
     "preview": "node build/index.js --preview",
     "build:Spar": "vue-cli-service build --Spar",
-
     "new": "plop",
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml",
     "test:unit": "jest --clearCache && vue-cli-service test:unit",

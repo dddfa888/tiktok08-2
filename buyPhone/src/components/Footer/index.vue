@@ -299,13 +299,13 @@ export default {
     },
     logo() {
       if (
-        ["Spar", "AntMall", "SM-wholesaleShop"].includes(
+        ["Spar", "AntMall", "SM-wholesaleShop", "TikTokMall"].includes(
           process.env.VUE_APP_ITEM_NAME
         )
       ) {
-        return require(`@/assets/Spar/logo.png`);
+        return require(`@/assets/TikTokMall/logo2.png`);
       } else {
-        return require(`@/assets/Spar/logo.png`);
+        return require(`@/assets/TikTokMall/logo2.png`);
       }
     }
   },
