@@ -197,20 +197,20 @@ export default {
             {
               path: "/aboutus",
               text: this.$t("关于我们")
-            },
-            {
-              path: "https://sainsburys.jobs/",
-              text: this.$t("招贤纳士")
-            },
-            {
-              path: "https://www.about.sainsburys.co.uk/news/media-enquiries",
-              text: this.$t("新闻资讯")
-            },
-            {
-              path:
-                "https://www.about.sainsburys.co.uk/sustainability/plan-for-better/our-stories/2017/standing-up-to-modern-slavery",
-              text: this.$t("现代奴隶声明")
             }
+            // {
+            //   path: "https://sainsburys.jobs/",
+            //   text: this.$t("招贤纳士")
+            // },
+            // {
+            //   path: "https://www.about.sainsburys.co.uk/news/media-enquiries",
+            //   text: this.$t("新闻资讯")
+            // },
+            // {
+            //   path:
+            //     "https://www.about.sainsburys.co.uk/sustainability/plan-for-better/our-stories/2017/standing-up-to-modern-slavery",
+            //   text: this.$t("现代奴隶声明")
+            // }
           ]
         }
       ],
@@ -429,37 +429,37 @@ export default {
     if (this.name == "FamilyMart") {
       this.textList[3].subset[0].path = "https://familymart.vip/";
     }
-    if (!window.plus) {
-      if (this.name == "Shop2u") {
-        this.textList[0].subset.push({
-          path:
-            "https://play.google.com/store/apps/details?id=com.commerce.app",
-          text: this.$t("安卓下载")
-        });
-        this.textList[0].subset.push({
-          path: "https://apps.apple.com/my/app/shop2u/id6448880380",
-          text: this.$t("苹果下载")
-        });
-        return;
-      }
-      if (!["Hive", "Spar"].includes(this.name)) {
-        if (this.name == "INT Overstock") {
-          this.textList[0].subset.push({
-            path: location.origin + "/app.html",
-            text: this.$t("应用程序下载")
-          });
-        } else {
-          this.textList[0].subset.push({
-            path: location.origin + "/app.html",
-            text: this.$t("APP下载(买家端)")
-          });
-          this.textList[0].subset.push({
-            path: location.origin + "/app.html",
-            text: this.$t("APP下载(卖家端)")
-          });
-        }
-      }
-    }
+    // if (!window.plus) {
+    //   if (this.name == "Shop2u") {
+    //     this.textList[0].subset.push({
+    //       path:
+    //         "https://play.google.com/store/apps/details?id=com.commerce.app",
+    //       text: this.$t("安卓下载")
+    //     });
+    //     this.textList[0].subset.push({
+    //       path: "https://apps.apple.com/my/app/shop2u/id6448880380",
+    //       text: this.$t("苹果下载")
+    //     });
+    //     return;
+    //   }
+    //   if (!["Hive", "Spar"].includes(this.name)) {
+    //     if (this.name == "INT Overstock") {
+    //       this.textList[0].subset.push({
+    //         path: location.origin + "/app.html",
+    //         text: this.$t("应用程序下载")
+    //       });
+    //     } else {
+    //       this.textList[0].subset.push({
+    //         path: location.origin + "/app.html",
+    //         text: this.$t("APP下载(买家端)")
+    //       });
+    //       this.textList[0].subset.push({
+    //         path: location.origin + "/app.html",
+    //         text: this.$t("APP下载(卖家端)")
+    //       });
+    //     }
+    //   }
+    // }
     if (this.name === "MetaShop") {
       this.textList[3].subset[0].path = "/promote/#/aboutUs";
     }

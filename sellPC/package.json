@@ -5,6 +5,7 @@
   "author": "Soye <soyetsin@gmail.com>",
   "scripts": {
     "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
     "dev:Spar": "vue-cli-service serve --Spar",
     "dev:TikTok-Wholesale": "vue-cli-service serve --TikTok-Wholesale",
     "dev:Wholesale": "vue-cli-service serve --Wholesale",

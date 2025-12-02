@@ -228,49 +228,49 @@ export default {
             //   path: "",
             //   clickEvent: () => {},
             // },
-            {
-              name:
-                process.env.VUE_APP_ITEM_NAME == "Hive" ||
-                process.env.VUE_APP_ITEM_NAME === "Spar"
-                  ? ""
-                  : process.env.VUE_APP_ITEM_NAME == "INT Overstock"
-                  ? this.$t("message.home.客户端下载")
-                  : process.env.VUE_APP_ITEM_NAME == "Shop2u"
-                  ? this.$t("message.home.homeDownloadtips4")
-                  : this.$t("message.home.App下载(买家端)"),
-              path: "",
-              clickEvent: () => {
-                if (process.env.VUE_APP_ITEM_NAME == "Shop2u") {
-                  window.open(
-                    "https://play.google.com/store/apps/details?id=com.commerce.app",
-                    "_blank"
-                  );
-                } else {
-                  window.location.href = window.origin + "/app.html";
-                }
-              }
-            },
-            {
-              name:
-                process.env.VUE_APP_ITEM_NAME == "Hive" ||
-                process.env.VUE_APP_ITEM_NAME == "INT Overstock" ||
-                process.env.VUE_APP_ITEM_NAME === "Spar"
-                  ? ""
-                  : process.env.VUE_APP_ITEM_NAME == "Shop2u"
-                  ? this.$t("message.home.homeDownloadtips5")
-                  : this.$t("message.home.App下载(卖家端)"),
-              path: "",
-              clickEvent: () => {
-                if (process.env.VUE_APP_ITEM_NAME == "Shop2u") {
-                  window.open(
-                    "https://apps.apple.com/my/app/shop2u/id6448880380",
-                    "_blank"
-                  );
-                } else {
-                  window.location.href = window.origin + "/app.html";
-                }
-              }
-            }
+            // {
+            //   name:
+            //     process.env.VUE_APP_ITEM_NAME == "Hive" ||
+            //     process.env.VUE_APP_ITEM_NAME === "Spar"
+            //       ? ""
+            //       : process.env.VUE_APP_ITEM_NAME == "INT Overstock"
+            //       ? this.$t("message.home.客户端下载")
+            //       : process.env.VUE_APP_ITEM_NAME == "Shop2u"
+            //       ? this.$t("message.home.homeDownloadtips4")
+            //       : this.$t("message.home.App下载(买家端)"),
+            //   path: "",
+            //   clickEvent: () => {
+            //     if (process.env.VUE_APP_ITEM_NAME == "Shop2u") {
+            //       window.open(
+            //         "https://play.google.com/store/apps/details?id=com.commerce.app",
+            //         "_blank"
+            //       );
+            //     } else {
+            //       window.location.href = window.origin + "/app.html";
+            //     }
+            //   }
+            // }
+            // {
+            //   name:
+            //     process.env.VUE_APP_ITEM_NAME == "Hive" ||
+            //     process.env.VUE_APP_ITEM_NAME == "INT Overstock" ||
+            //     process.env.VUE_APP_ITEM_NAME === "Spar"
+            //       ? ""
+            //       : process.env.VUE_APP_ITEM_NAME == "Shop2u"
+            //       ? this.$t("message.home.homeDownloadtips5")
+            //       : this.$t("message.home.App下载(卖家端)"),
+            //   path: "",
+            //   clickEvent: () => {
+            //     if (process.env.VUE_APP_ITEM_NAME == "Shop2u") {
+            //       window.open(
+            //         "https://apps.apple.com/my/app/shop2u/id6448880380",
+            //         "_blank"
+            //       );
+            //     } else {
+            //       window.location.href = window.origin + "/app.html";
+            //     }
+            //   }
+            // }
           ]
         },
         {
@@ -350,61 +350,61 @@ export default {
               clickEvent: () => {
                 this.$router.push("/aboutus");
               }
-            },
-            {
-              name:
-                process.env.VUE_APP_ITEM_NAME == "Shop2u"
-                  ? this.$t("message.home.企业证明")
-                  : process.env.VUE_APP_ITEM_NAME == "INT Overstock"
-                  ? this.$t("message.home.职业机会")
-                  : this.$t("message.home.Recruitment"),
-              path: "",
-              clickEvent: () => {
-                process.env.VUE_APP_ITEM_NAME == "Shop2u"
-                  ? (window.location.href =
-                      window.origin +
-                        "/promote/#/enterprise-prove?lang=" +
-                        this.lang || "en" + "&avatar=" + this.userInfo.avatar)
-                  : process.env.VUE_APP_ITEM_NAME == "INT Overstock"
-                  ? window.open("https://overstock8.me/gw/#/", "_blank")
-                  : window.open("https://sainsburys.jobs/ ", "_blank");
-              }
-            },
-            {
-              name:
-                process.env.VUE_APP_ITEM_NAME == "INT Overstock"
-                  ? ""
-                  : this.$t("message.home.news"),
-              path: "",
-              clickEvent: () => {
-                process.env.VUE_APP_ITEM_NAME == "Shop2u"
-                  ? window.open(
-                      "https://finance.yahoo.com/news/british-chambers-commerce-visited-shop2u-170000654.html?fr=sycsrp_catchall",
-                      "_blank"
-                    )
-                  : window.open(
-                      "https://www.about.sainsburys.co.uk/news/media-enquiries",
-                      "_blank"
-                    );
-              }
-            },
-            {
-              name:
-                process.env.VUE_APP_ITEM_NAME == "INT Overstock"
-                  ? ""
-                  : process.env.VUE_APP_ITEM_NAME == "Shop2u"
-                  ? "YouTube"
-                  : this.$t("message.home.stateMent"),
-              path: "",
-              clickEvent: () => {
-                process.env.VUE_APP_ITEM_NAME == "Shop2u"
-                  ? window.open("https://www.youtube.com/@shop2u", "_blank")
-                  : window.open(
-                      "https://www.about.sainsburys.co.uk/sustainability/plan-for-better/our-stories/2017/standing-up-to-modern-slavery",
-                      "_blank"
-                    );
-              }
             }
+            // {
+            //   name:
+            //     process.env.VUE_APP_ITEM_NAME == "Shop2u"
+            //       ? this.$t("message.home.企业证明")
+            //       : process.env.VUE_APP_ITEM_NAME == "INT Overstock"
+            //       ? this.$t("message.home.职业机会")
+            //       : this.$t("message.home.Recruitment"),
+            //   path: "",
+            //   clickEvent: () => {
+            //     process.env.VUE_APP_ITEM_NAME == "Shop2u"
+            //       ? (window.location.href =
+            //           window.origin +
+            //             "/promote/#/enterprise-prove?lang=" +
+            //             this.lang || "en" + "&avatar=" + this.userInfo.avatar)
+            //       : process.env.VUE_APP_ITEM_NAME == "INT Overstock"
+            //       ? window.open("https://overstock8.me/gw/#/", "_blank")
+            //       : window.open("https://sainsburys.jobs/ ", "_blank");
+            //   }
+            // },
+            // {
+            //   name:
+            //     process.env.VUE_APP_ITEM_NAME == "INT Overstock"
+            //       ? ""
+            //       : this.$t("message.home.news"),
+            //   path: "",
+            //   clickEvent: () => {
+            //     process.env.VUE_APP_ITEM_NAME == "Shop2u"
+            //       ? window.open(
+            //           "https://finance.yahoo.com/news/british-chambers-commerce-visited-shop2u-170000654.html?fr=sycsrp_catchall",
+            //           "_blank"
+            //         )
+            //       : window.open(
+            //           "https://www.about.sainsburys.co.uk/news/media-enquiries",
+            //           "_blank"
+            //         );
+            //   }
+            // }
+            // {
+            //   name:
+            //     process.env.VUE_APP_ITEM_NAME == "INT Overstock"
+            //       ? ""
+            //       : process.env.VUE_APP_ITEM_NAME == "Shop2u"
+            //       ? "YouTube"
+            //       : this.$t("message.home.stateMent"),
+            //   path: "",
+            //   clickEvent: () => {
+            //     process.env.VUE_APP_ITEM_NAME == "Shop2u"
+            //       ? window.open("https://www.youtube.com/@shop2u", "_blank")
+            //       : window.open(
+            //           "https://www.about.sainsburys.co.uk/sustainability/plan-for-better/our-stories/2017/standing-up-to-modern-slavery",
+            //           "_blank"
+            //         );
+            //   }
+            // }
           ]
         }
       ],
