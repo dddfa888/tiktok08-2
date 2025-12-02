@@ -150,7 +150,10 @@
                     <p class="padding-tb">
                       {{ $t("capture_info18")
                       }}
-                      <img :src="resultImg" class="esign-img" />
+                      <img
+                        :src="resultImg"
+                        class="esign-img"
+                      />
                     </p>
                     <p class="padding-tb">{{ $t("capture_info19") }}{{ now_date }}</p>
                   </div>
@@ -1000,8 +1003,8 @@ export default {
       return this.$t("获取验证码");
     },
     tabList() {
-      // return [this.$t("电子邮箱"), this.$t("手机号")];
-      return [this.$t("电子邮箱")];
+      return [this.$t("电子邮箱"), this.$t("手机号")];
+      // return [this.$t("电子邮箱")];
     },
     languageIcon() {
       const language = this.$store.getters.language || "CN";

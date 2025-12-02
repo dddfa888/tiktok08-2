@@ -20,7 +20,7 @@
           </div>
         </div>
         <div v-if="currentLevelObj" class="level-info">
-          <img :src="currentLevelObj.icon" alt />
+          <!--<img :src="currentLevelObj.icon" alt />-->
           <div
             v-if="currentLevelObj.name"
             :class="currentLevelObj.name"
@@ -38,10 +38,10 @@
           <div class="txt" :style="{'left': gapProgress}">{{ gapProgress }}</div>
           <div class="line" :style="{'width': gapProgress}"></div>
         </div>
-        <div
+        <!--<div
           class="name"
           :style="{ 'background-image': 'url(' + getLevelIconImg(nextLevelObj.name) + ')' }"
-        >{{ nextLevelObj.name }}</div>
+        >{{ nextLevelObj.name }}</div>-->
       </div>
       <div class="level-number-content">
         <p
@@ -279,7 +279,7 @@
               </div>
             </template>
           </van-cell>
-          <van-cell is-link to="/refundRequest">
+          <!--<van-cell is-link to="/refundRequest">
             <template #title>
               <div class="flex items-center">
                 <svg
@@ -297,7 +297,7 @@
                 <div class="color-333" :class="isArLang ? 'mr-2' : 'ml-2'">{{ t('refundRequest') }}</div>
               </div>
             </template>
-          </van-cell>
+          </van-cell>-->
         </van-cell-group>
       </div>
 
@@ -370,11 +370,11 @@
             </template>
           </van-cell>
 
-          <van-cell is-link to="/bank">
+          <!--<van-cell is-link to="/bank">
             <template #title>
-              <div class="flex items-center">
-                <!-- 银行卡图标 -->
-                <svg
+          <div class="flex items-center">-->
+          <!-- 银行卡图标 -->
+          <!-- <svg
                   width="20"
                   height="20"
                   viewBox="0 0 24 24"
@@ -411,9 +411,9 @@
                 <div class="color-333" :class="isArLang ? 'mr-2' : 'ml-2'">{{ t('银行卡') }}</div>
               </div>
             </template>
-          </van-cell>
+          </van-cell>-->
 
-          <van-cell v-if="promotionShow" is-link to="/shop/promotion">
+          <!--<van-cell v-if="promotionShow" is-link to="/shop/promotion">
             <template #title>
               <div class="flex items-center">
                 <svg
@@ -434,7 +434,7 @@
                 <div class="color-333" :class="isArLang ? 'mr-2' : 'ml-2'">{{ t('shopPromotion') }}</div>
               </div>
             </template>
-          </van-cell>
+          </van-cell>-->
         </van-cell-group>
       </div>
 
@@ -499,7 +499,7 @@ const router = useRouter()
 const modeType = import.meta.env.MODE
 const colorMode = needChangeMode.includes(modeType) ? modeType : 'main'
 
-const bgImg = getImg(`imgs/me/${colorMode}/bg1.png`)
+const bgImg = getImg(`imgs/me/tiktok-wholesale/bg1.png`)
 const defaultAvatar = reactive({
   avatar: new URL('@/assets/imgs/me/defaultAvatar.png', import.meta.url)
 })

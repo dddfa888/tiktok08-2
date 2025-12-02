@@ -19,7 +19,7 @@
       <!-- <p class="name">{{ sellerData?.name || 'Store Name' }}</p> -->
       <div class="name-content">
         <p>{{ sellerData?.name || 'Store Name' }}</p>
-        <img v-if="currentLevel && showLevelIcon" :src="levleIcon[currentLevel]" alt />
+        <!--<img v-if="currentLevel && showLevelIcon" :src="levleIcon[currentLevel]" alt />-->
       </div>
       <div class="enter" :class="{'is-ar': isArLang}">
         <img :src="images.service.href" alt @click="toCustomerService" />
@@ -377,8 +377,10 @@ defineExpose({
 <style lang="scss" scoped>
 .shop-header {
   width: 100%;
-  background-color: var(--site-main-color);
-  border-bottom: 42px solid var(--site-main-color);
+  background-image: url('@/assets/imgs/me/tiktok-wholesale/bg1.png');
+  border-bottom: 42px solid transparent;
+  // background-color: var(--site-main-color);
+  // border-bottom: 42px solid var(--site-main-color);
   padding: 0 15px;
   .shop-header-content {
     height: 90px;

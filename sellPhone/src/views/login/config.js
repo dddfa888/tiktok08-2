@@ -62,7 +62,10 @@ export const logoData = [
   {
     name: 'TikTok-Wholesale',
     key: 'tiktok-wholesale',
-    logo: new URL('@/assets/image/logo/tiktok-wholesale_app.png', import.meta.url)
+    logo: new URL(
+      '@/assets/image/logo/tiktok-wholesale_app.png',
+      import.meta.url
+    )
   },
   {
     name: 'AntMall',
@@ -82,7 +85,10 @@ export const logoData = [
   {
     name: 'Alibaba-Wholesale',
     key: 'alibaba-wholesale',
-    logo: new URL('@/assets/image/logo/alibaba-wholesale_app.png', import.meta.url)
+    logo: new URL(
+      '@/assets/image/logo/alibaba-wholesale_app.png',
+      import.meta.url
+    )
   },
   {
     name: 'Azedi',

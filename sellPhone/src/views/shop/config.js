@@ -43,7 +43,6 @@ export const visitorsData = [
     icon: new URL('@/assets/image/shop/icon_28.png', import.meta.url)
   },
   {
-
     title: '预计利润',
     number: 0,
     decimals: 2,
@@ -57,21 +56,21 @@ export const navData = [
     icon: new URL('@/assets/image/shop/icon_15.png', import.meta.url),
     href: '/shop/settings'
   },
-  {
-    title: 'refunds',
-    icon: new URL('@/assets/image/shop/icon_16.png', import.meta.url),
-    href: '/refundRequest'
-  },
-  {
-    title: 'throughCar',
-    icon: new URL('@/assets/image/shop/icon_04.png', import.meta.url),
-    href: '/shop/marketing'
-  },
-  {
-    title: 'shopPromotion',
-    icon: new URL('@/assets/image/shop/icon_17.png', import.meta.url),
-    href: '/shop/promotion'
-  },
+  // {
+  //   title: 'refunds',
+  //   icon: new URL('@/assets/image/shop/icon_16.png', import.meta.url),
+  //   href: '/refundRequest'
+  // },
+  // {
+  //   title: 'throughCar',
+  //   icon: new URL('@/assets/image/shop/icon_04.png', import.meta.url),
+  //   href: '/shop/marketing'
+  // },
+  // {
+  //   title: 'shopPromotion',
+  //   icon: new URL('@/assets/image/shop/icon_17.png', import.meta.url),
+  //   href: '/shop/promotion'
+  // },
   {
     title: 'shopRecharge',
     icon: new URL('@/assets/image/shop/icon_07.png', import.meta.url),
@@ -82,11 +81,11 @@ export const navData = [
     icon: new URL('@/assets/image/shop/icon_08.png', import.meta.url),
     href: '/withdraw'
   },
-  {
-    title: '卖家等级',
-    icon: new URL('@/assets/image/shop/icon_21.png', import.meta.url),
-    href: '/sellerLevel'
-  },
+  // {
+  //   title: '卖家等级',
+  //   icon: new URL('@/assets/image/shop/icon_21.png', import.meta.url),
+  //   href: '/sellerLevel'
+  // },
   {
     title: '切换至买家',
     icon: new URL('@/assets/image/shop/icon_31.png', import.meta.url),

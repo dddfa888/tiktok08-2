@@ -414,7 +414,7 @@ nextTick(() => {
     align-items: center;
     margin-bottom: 8vh;
     > img {
-      width: 50vw;
+      width: 20vw;
       height: auto;
     }
     > h2 {

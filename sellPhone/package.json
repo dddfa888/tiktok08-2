@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --ext .vue,.js ./",
     "lint:fix": "eslint --fix --ext .vue,.js ./",
-    "dev": "vite --mode Spar",
+    "dev": "vite --mode tiktokMall",
     "build": "vite build",
     "dev:argos": "vite --mode argos",
     "dev:argos2": "vite --mode argos2",
