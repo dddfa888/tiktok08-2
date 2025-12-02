@@ -130,7 +130,9 @@
                   @click="protocolVisible = true"
                 >{{ $t("商家规则") }}</span>
               </div>
-              <div></div>
+              <div>
+                <el-button type="text" @click="toRegister">{{ $t("注册") }}</el-button>
+              </div>
               <el-popover trigger="click" :content="$t('忘记密码？请联系客服。')">
                 <el-button slot="reference" type="text">
                   {{
@@ -201,6 +203,7 @@ import hiveBg from "@/assets/images/login/hive-bg.png";
 import justShopBg from "@/assets/images/login/just-shop-bg.png";
 import wholesaleBg from "@/assets/images/login/wholesale-bg.jpg";
 import Protocol from "@/views/login/protocol.vue";
+import config from "@/config";
 
 const setting = require("@/settings");
 
@@ -243,7 +246,7 @@ export default {
       }
     };
     return {
-      logo: require("@/assets/images/login/Sparlogo.png"),
+      logo: require("@/assets/images/login/logo.png"),
       setting,
       // regionList: [86, 852, 63, 992],
       // regionCode: 86,
@@ -386,6 +389,9 @@ export default {
     // window.removeEventListener('storage', this.afterQRScan)
   },
   methods: {
+    toRegister() {
+      window.open(config.HOST_URL + "/promote/#/");
+    },
     closeProtocol() {
       this.protocolVisible = false;
     },
