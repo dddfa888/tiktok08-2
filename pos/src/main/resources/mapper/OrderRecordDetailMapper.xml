@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.auto.mall.mapper.OrderRecordDetailMapper">
+
+
+    <select id="selectOrderRecordDetailByPage" resultType="com.auto.mall.dto.OrderRecordDetailDto">
+        SELECT mord.UUID id,  mord.ORDER_ID orderId, mord.RECORD_ID recordId, mord.USER_ID userId
+             , pp.USERNAME username, mord.ORDER_AMOUNT orderAmount , msgl.`NAME` goodsName, mord.NUM num
+             , IFNULL(IFNULL(msgs.DISCOUNT_PRICE, msgs.SELLING_PRICE), msg.SELLING_PRICE) amount, ms.`NAME` shopName ,mord.CREATE_TIME  as createTime
+        FROM `T_MALL_ORDER_RECORD_DETAIL` mord
+                 LEFT JOIN PAT_PARTY pp ON mord.USER_ID = pp.UUID
+                 LEFT JOIN T_MALL_SELLER_GOODS msg ON mord.SELLER_GOODS_ID = msg.UUID
+                 LEFT JOIN T_MALL_SELLER_GOODS_SKU msgs ON msgs.UUID = mord.SKU_ID
+                 LEFT JOIN T_MALL_SELLER ms ON mord.SELLER_ID = ms.UUID
+                 LEFT JOIN T_MALL_SYSTEM_GOODS_LANG msgl ON msgl.GOODS_ID = msg.GOODS_ID AND msgl.LANG = #{lang}
+        WHERE mord.RECORD_ID = #{id}
+        ORDER BY mord.CREATE_TIME desc
+    </select>
+
+    <select id="queryOrderList" resultType="com.auto.mall.model.MallOrdersPrize">
+        SELECT
+            p.UUID as id,
+            p.PARTY_ID as partyId,
+            p.SELLER_ID as sellerId,
+            p.SELLER_NAME as sellerName,
+            p.CREATE_TIME as createTime,
+            p.ADDRESS as address,
+            p.CONTACTS as contacts
+        FROM
+            T_MALL_ORDER_RECORD_DETAIL d
+                LEFT JOIN T_MALL_ORDERS_PRIZE p ON d.ORDER_ID = p.UUID
+        WHERE
+            d.RECORD_ID = #{id}
+            LIMIT #{pageNo},#{pageSize}
+    </select>
+    <select id="queryOrderListTotal" resultType="long">
+        SELECT
+            COUNT(p.UUID)
+        FROM
+            T_MALL_ORDER_RECORD_DETAIL d
+                LEFT JOIN T_MALL_ORDERS_PRIZE p ON d.ORDER_ID = p.UUID
+        WHERE
+            d.RECORD_ID = #{id}
+    </select>
+
+</mapper>

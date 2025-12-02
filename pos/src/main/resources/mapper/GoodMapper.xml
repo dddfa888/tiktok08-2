@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.auto.mall.mapper.GoodMapper">
+
+    <update id="updateVieNumber">
+        UPDATE T_MALL_SELLER_GOODS SET VIEWS_NUM = VIEWS_NUM + #{count} WHERE uuid = #{uuid}
+    </update>
+
+
+    <select id="selectGoodsByItemsAndSku" resultType="com.auto.mall.api.resp.GoodResp">
+        <if test="skuIds == null or skuIds.size() == 0">
+            SELECT sg.UUID AS uuid,
+            sg.SELLER_ID AS sellerId,
+            null AS skuId,
+            0.0 AS discountPrice,
+            sg.SELLING_PRICE AS sellingPrice,
+            IFNULL(sg.DISCOUNT_START_TIME, now()) AS discountStartTime,
+            IFNULL(sg.DISCOUNT_END_TIME, now()) AS discountEndTime
+            FROM T_MALL_SELLER_GOODS sg
+            WHERE
+            sg.UUID IN
+            <foreach collection="items" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+
+        </if>
+        <if test="skuIds != null and skuIds.size() > 0">
+            SELECT
+            sg.UUID AS uuid,
+            CASE WHEN sgs.SELLER_ID IS NULL THEN sg.SELLER_ID ELSE sgs.SELLER_ID END AS sellerId,
+            sgs.UUID AS skuId,
+            IFNULL(sgs.DISCOUNT_PRICE , 0.0) AS discountPrice,
+            CASE WHEN sgs.SELLING_PRICE IS NULL THEN sg.SELLING_PRICE ELSE sgs.SELLING_PRICE END AS sellingPrice,
+            IFNULL(sg.DISCOUNT_START_TIME, now()) AS discountStartTime,
+            IFNULL(sg.DISCOUNT_END_TIME, now()) AS discountEndTime
+            FROM
+            ( SELECT *
+            FROM T_MALL_SELLER_GOODS
+            WHERE
+            UUID IN
+            <foreach collection="items" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+            ) sg
+            LEFT JOIN T_MALL_SELLER_GOODS_SKU sgs ON sg.UUID = SELLER_GOODS_ID
+            <where>
+
+                sgs.SKU_ID IS NULL
+                OR sgs.SKU_ID IN
+                <foreach collection="skuIds" open="(" close=")" separator="," item="skuId">
+                    #{skuId}
+                </foreach>
+            </where>
+        </if>
+    </select>
+
+</mapper>

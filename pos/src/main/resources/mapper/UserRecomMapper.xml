@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.auto.mall.mapper.UserRecomMapper">
+
+    <select id="selectPromoteList" resultType="com.auto.mall.api.resp.PromoteResp">
+        SELECT
+        ms.UUID, ms.AVATAR avatar, ms.NAME `name`, ms.CREATE_TIME createTime
+        FROM T_MALL_SELLER ms
+        WHERE 1 = 1
+        <if test="null != objs and objs.size() > 0">
+            AND ms.UUID IN
+            <foreach collection="objs" index="index" item="obj" open="(" close=")" separator=",">
+                #{obj}
+            </foreach>
+        </if>
+        ORDER BY ms.CREATE_TIME DESC
+    </select>
+
+</mapper>

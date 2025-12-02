@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.auto.mall.mapper.OrderTaskMapper">
+
+    <select  id="findOrderTaskByDelayAndStatusPage"  resultType="com.auto.mall.model.OrderTask">
+        SELECT
+            ID as id,
+            ORDER_ID as orderId,
+            DELAY as delay,
+            PARTY_ID as partyId,
+            GOOD_INFO as goodInfo,
+            SELLER_ID as sellerId,
+            COUNT as count,
+        AMOUNT as amount ,
+        STATUS as status
+        FROM
+            T_MALL_ORDER_TASK
+        WHERE
+            STATUS = #{status}
+          AND DELAY <![CDATA[<=]]> #{date}
+        ORDER BY ID
+            LIMIT #{page.pageNo},#{page.pageSize}
+    </select>
+</mapper>

@@ -1,0 +1,1 @@
+INSERT INTO `T_SYSPARA` (`UUID`, `CODE`, `PARTY_ID`, `SVALUE`, `SORDER`, `STYPE`, `NOTES`, `MODIFY`, `BAG_TYPE`) VALUES ('customer_service_url_st', 'customer_service_url_st', NULL, '', 100, 2, '思途客服URL', 0, 0);

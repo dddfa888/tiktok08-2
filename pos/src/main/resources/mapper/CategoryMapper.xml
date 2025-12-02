@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.auto.mall.mapper.CategoryMapper">
+
+
+    <select id="findCategoryList" resultType="com.auto.mall.api.resp.CategoryResp">
+        SELECT tmcl.name categoryName, tmc.UUID categoryId
+        FROM
+            T_MALL_CATEGORY tmc LEFT JOIN T_MALL_CATEGORY_LANG tmcl ON tmc.UUID = tmcl.CATEGORY_ID
+        WHERE tmcl.LANG = 'cn' AND tmc.TYPE=1 AND tmc.LEVEL = 1
+        ORDER BY tmc.CREATE_TIME
+    </select>
+
+    <select id="findSellerList" resultType="com.auto.mall.api.resp.SellerResp">
+        SELECT tms.UUID sellerId , tms.NAME sellerName
+        FROM
+            T_MALL_SELLER tms
+        WHERE LENGTH(trim(tms.NAME)) > 0 AND tms.NAME IS NOT NULL AND tms.STATUS = 1
+        ORDER BY tms.CREATE_TIME
+    </select>
+
+    <select id="findSellerGoodsList" resultType="com.auto.mall.api.resp.SellerGoodsResp">
+        SELECT
+        tmsg.IMG_URL_1 imgUrl, msg.GOODS_ID goodsId, msg.SELLER_ID sellerId,
+        msg.SELLING_PRICE sellingPrice, msgl.NAME goodsName, msg.UUID sellerGoodsId
+        FROM T_MALL_SELLER_GOODS msg
+        LEFT JOIN T_MALL_SYSTEM_GOODS tmsg ON tmsg.UUID = msg.GOODS_ID
+        LEFT JOIN T_MALL_SYSTEM_GOODS_LANG msgl ON msg.GOODS_ID = msgl.GOODS_ID
+        LEFT JOIN T_MALL_SELLER ms ON msg.SELLER_ID = ms.UUID
+        LEFT JOIN PAT_PARTY p ON msg.SELLER_ID = p.UUID
+        <where>
+            msgl.LANG = 'en' and msg.IS_SHELF = '1' and msg.IS_VALID = 1
+            <if test="obj.goodsName != null and obj.goodsName != '' ">
+                and msgl.NAME like concat('%',#{obj.goodsName},'%')
+            </if>
+            <if test="obj.children != null and obj.children.size >0 ">
+                and ms.UUID in
+                <foreach item="item" index="index" collection="obj.children" open="(" separator="," close=" )">
+                    #{item}
+                </foreach>
+            </if>
+
+            <if test="obj.sellerId != null and obj.sellerId != '' ">
+                and msg.SELLER_ID = #{obj.sellerId}
+            </if>
+            <if test="obj.userCode != null and obj.userCode != '' ">
+                and p.USERCODE = #{obj.userCode}
+            </if>
+            <if test="obj.categoryId != null and obj.categoryId != '' ">
+                and msg.CATEGORY_ID = #{obj.categoryId}
+            </if>
+            <if test="obj.secondaryCategoryId != null and obj.secondaryCategoryId != '' ">
+                and msg.SECONDARY_CATEGORY_ID = #{obj.secondaryCategoryId}
+            </if>
+        </where>
+        GROUP BY msg.UUID
+        ORDER BY msg.CREATE_TIME
+    </select>
+
+    <select id="findPartyList" resultType="com.auto.mall.api.resp.PartyResp">
+        SELECT
+            u.CONTACTS contacts, u.UUID userAddressId, p.UUID partyId
+        FROM T_MALL_USERADDRESS u LEFT JOIN PAT_PARTY p ON u.PARTY_ID = p.UUID
+        WHERE p.ROLE_TYPE = 0 AND u.COUNTRY_ID != 0 AND p.ROLENAME = 'GUEST'
+        AND u.STATUS = 1
+        AND p.AUTO_COMMENT = 'Y'
+        AND u.COUNTRY_ID is not  null
+        AND u.COUNTRY is not null
+        ORDER BY u.CREATE_TIME
+    </select>
+    <select id="findPartyCount" resultType="int">
+        SELECT
+            count(u.UUID)
+        FROM T_MALL_USERADDRESS u LEFT JOIN PAT_PARTY p ON u.PARTY_ID = p.UUID
+        WHERE p.ROLE_TYPE = 0 AND u.COUNTRY_ID != 0 AND p.ROLENAME = 'GUEST'
+        AND u.STATUS = 1
+        AND p.AUTO_COMMENT = 'Y'
+        AND u.COUNTRY_ID is not  null
+        AND u.COUNTRY is not null
+        ORDER BY u.CREATE_TIME
+    </select>
+
+</mapper>

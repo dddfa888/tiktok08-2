@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.auto.mall.mapper.MallRebateMapper">
+
+
+    <select id="selectOrderRebate" resultType="com.auto.mall.dto.MallRebateDto">
+        SELECT
+            UUID,IFNULL(COUNT(mr.ORDER_ID), 0) orderCount, IFNULL(SUM(mr.REBATE), 0.0) income
+        FROM T_MALL_REBATE mr
+        WHERE mr.ORDER_PARTY_ID = #{uuid} AND mr.PARTY_ID = #{partyId}
+    </select>
+</mapper>
