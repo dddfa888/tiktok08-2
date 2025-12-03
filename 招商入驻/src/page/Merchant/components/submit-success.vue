@@ -121,7 +121,7 @@
               {{ $t("rzTitle4info1") }}
       </p>-->
     </div>
-    <Service :isShow="isShow" @show="closeService" />
+    <Service :isShow="isShow" :token="token" @show="closeService" />
   </div>
 </template>
 
@@ -202,16 +202,13 @@ export default {
           }
           if (this.onlinePath) {
             window.open(this.onlinePath, "_blank");
-            // } else if (is_mobile()) {
-            //   this.$router.push(`/customerServiceIndex`, {
-            //     query: { token: this.token }
-            //   });
+          } else if (is_mobile()) {
+            this.$router.push({
+              path: "/customerServiceIndex",
+              query: { token: this.token }
+            });
           } else {
-            // this.isShow = true;
-            // this.$router.push(`/customerServiceIndex`, {
-            //   query: { token: this.token }
-            // });
-            console.log("联系客服路径未配置");
+            this.isShow = true;
           }
 
           break;

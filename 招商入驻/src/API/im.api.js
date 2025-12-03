@@ -9,6 +9,7 @@ export const _getMsg = (params) => {
     params: {
       message_id: params.message_id || "", // 翻页用到
       show_img: params.show_img || true,
+      token: params.token || "",
     },
   });
 };

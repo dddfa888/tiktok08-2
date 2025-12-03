@@ -1551,7 +1551,7 @@ export default {
                 this.$el
                   .querySelector("#product")
                   .scrollIntoView({ behavior: "smooth" });
-                this.token = res.token;
+                localStorage.setItem("token", res.token);
               })
               .catch(err => {
                 console.log(err);
@@ -1592,6 +1592,7 @@ export default {
                   .scrollIntoView({ behavior: "smooth" });
                 console.log("res111 ->", res);
                 this.token = res.token;
+                localStorage.setItem("token", res.token);
               })
               .catch(err => {
                 console.log(err);

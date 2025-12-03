@@ -16,9 +16,7 @@
           @click="onMore"
           :style="{ visibility: finished ? 'hidden' : 'visiable' }"
           style="font-size: 14px"
-        >
-          {{ $t("历史消息") }}
-        </div>
+        >{{ $t("历史消息") }}</div>
         <ul class="flex flex-col pt-20">
           <li
             v-for="(item, index) in list"
@@ -32,17 +30,14 @@
               style="font-size: 14px"
             >
               {{
-                $formatZoneDate(item.createtime) &&
-                $formatZoneDate(item.createtime.split(" ")[0])
+              $formatZoneDate(item.createtime) &&
+              $formatZoneDate(item.createtime.split(" ")[0])
               }}
             </p>
-            <div
-              class="flex"
-              :class="item.send_receive === 'send' ? 'justify-end' : ''"
-            >
+            <div class="flex" :class="item.send_receive === 'send' ? 'justify-end' : ''">
               <template v-if="item.send_receive === 'receive'">
                 <img
-                  :src="itemname == 'FamilyShop' ? require(`@/assets/image/${itemname}/sevice.png`): itemname =='TikTok'? require(`@/assets/image/${itemname}/logo.png`) : require(`@/assets/image/${itemname}/logo.svg`)"
+                  :src="itemname == 'FamilyShop' ? require(`@/assets/image/${itemname}/sevice.png`): itemname =='TikTok'? require(`@/assets/image/${itemname}/${itemname}logo.png`) : require(`@/assets/image/${itemname}/logo.svg`)"
                   class="w-44 h-44 mr-10"
                 />
                 <div
@@ -53,9 +48,7 @@
                     class="break-word"
                     style="max-width: 230px"
                     v-if="item.type === 'text'"
-                  >
-                    {{ item.content }}
-                  </p>
+                  >{{ item.content }}</p>
                   <img
                     v-else
                     :src="item.content"
@@ -75,9 +68,7 @@
                   v-if="item.type === 'img'"
                   @click="onPreview(item.content)"
                 />
-                <p class="break-word" v-else style="max-width: 230px">
-                  {{ item.content }}
-                </p>
+                <p class="break-word" v-else style="max-width: 230px">{{ item.content }}</p>
               </div>
               <img
                 v-if="item.send_receive === 'send'"
@@ -115,7 +106,7 @@ import {
   _getMsg,
   _getUnreadMsg,
   _sendMsg,
-  tupianshangchuan_post2,
+  tupianshangchuan_post2
 } from "@/API/im.api";
 // import { _uploadImage } from "@/API/fund.api";
 import { Uploader, ImagePreview } from "vant";
@@ -124,7 +115,7 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   name: "CustomerService",
   components: {
-    [Uploader.name]: Uploader,
+    [Uploader.name]: Uploader
   },
   data() {
     return {
@@ -138,13 +129,13 @@ export default {
       androidAttrs: null,
       token_url: "",
       userAvatar: "",
-      count: "1",
+      count: "1"
     };
   },
   computed: {
     ...mapGetters({
-      activeLang: "language",
-    }),
+      activeLang: "language"
+    })
   },
   created() {
     this.count = localStorage.getItem("avater");
@@ -220,19 +211,19 @@ export default {
       formData.append("file", file.file);
       formData.append("moduleName", "123");
       tupianshangchuan_post2(formData)
-        .then((res) => {
+        .then(res => {
           t.$toast.clear();
           console.log(res);
           t.send("img", res);
         })
-        .catch(function (err) {
+        .catch(function(err) {
           console.log(err);
           this.$toast.clear();
         });
     },
     fetchList(message_id = "") {
       // 获取消息列表
-      _getMsg({ token: this.token_url, message_id }).then((data) => {
+      _getMsg({ token: this.token_url, message_id }).then(data => {
         // this.lastMsgId
         if (data == null) {
           data = [];
@@ -248,7 +239,7 @@ export default {
           } else {
             this.list = [...this.list, ...data.reverse()];
             let hash = {};
-            this.list = this.list.reduce(function (preVal, curVal) {
+            this.list = this.list.reduce(function(preVal, curVal) {
               hash[curVal.id]
                 ? " "
                 : (hash[curVal.id] = true && preVal.push(curVal));
@@ -264,8 +255,8 @@ export default {
               id: "1",
               send_receive: "receive",
               content: this.$t("你好，欢迎来到我们的平台"),
-              type: "text",
-            },
+              type: "text"
+            }
           ];
         }
         if (!message_id) {
@@ -274,12 +265,15 @@ export default {
             this.fetchList();
           }, 1000);
         }
-        this.list.forEach((item) => {
-            data.forEach((item1) => {
-                if (item.id == item1.id && item1.delete_status != item.delete_status) {
-                    item.delete_status = item1.delete_status
-                }
-            });
+        this.list.forEach(item => {
+          data.forEach(item1 => {
+            if (
+              item.id == item1.id &&
+              item1.delete_status != item.delete_status
+            ) {
+              item.delete_status = item1.delete_status;
+            }
+          });
         });
       });
     },
@@ -295,7 +289,7 @@ export default {
     },
     fetchUnread() {
       // 获取未读
-      _getUnreadMsg().then((data) => {
+      _getUnreadMsg().then(data => {
         this.unread = data;
         // console.log(data)
       });
@@ -312,17 +306,17 @@ export default {
         this.$toast(this.$t("请输入消息内容"));
         return;
       }
-      _sendMsg(type, content, this.token_url).then((data) => {
+      _sendMsg(type, content, this.token_url).then(data => {
         console.log(data);
         this.value = "";
         // document.getElementById('bottom').click()
         this.fetchList();
       });
-    },
+    }
   },
   beforeDestroy() {
     this.clearInterval();
-  },
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -348,13 +342,13 @@ export default {
   //}
 }
 .footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 10Px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 .van-uploader {
-  width: 24Px;
-  height: 24Px;
+  width: 24px;
+  height: 24px;
   img {
     max-width: 100%;
   }

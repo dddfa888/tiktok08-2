@@ -1,52 +1,53 @@
 <template>
   <div class="customerServiceIndex">
-    <van-nav-bar
-        :title="$t('客服')"
-        left-arrow
-        @click-left="onClickLeft"
-    />
+    <van-nav-bar :title="$t('客服')" left-arrow @click-left="onClickLeft" />
     <div class="nr">
       <img class="nr-img" src="../../assets/image/public/kefu.png" />
       <div class="t1">{{ $t('客服24小时为您竭诚服务') }}</div>
       <div class="t2">{{ $t('如果遇到问题需要帮助，请联系线上客服') }}</div>
-      <router-link to="/customerService2">
-      <div class="b1">{{ $t('开始咨询') }}</div>
-      </router-link>
+
+      <div @click="tocustomerService2" class="b1">{{ $t('开始咨询') }}</div>
     </div>
   </div>
 </template>
 <script>
-import {NavBar} from 'vant';
+import { NavBar } from "vant";
 
 export default {
   data() {
-    return {}
+    return {};
   },
-  components:{
-    [NavBar.name]:NavBar,
+  components: {
+    [NavBar.name]: NavBar
   },
   methods: {
-    onClickLeft(){
-      history.go(-1)
+    tocustomerService2() {
+      this.$router.push({
+        path: "/customerService2",
+        query: { token: this.$route.query.token }
+      });
     },
+    onClickLeft() {
+      history.go(-1);
+    }
   }
-}
+};
 </script>
 <style scoped lang="scss">
-.customerServiceIndex{
+.customerServiceIndex {
   width: 100%;
   min-height: 100%;
-  .nr{
+  .nr {
     width: 100%;
     padding: 0 15px;
     box-sizing: border-box;
     //display: flex;
     //justify-content: center;
-    .nr-img{
+    .nr-img {
       margin-top: 15px;
       width: 100%;
     }
-    .t1{
+    .t1 {
       margin-top: 30px;
       font-style: normal;
       font-weight: 400;
@@ -56,7 +57,7 @@ export default {
 
       text-align: center;
     }
-    .t2{
+    .t2 {
       margin-top: 10px;
       font-style: normal;
       font-weight: 400;
@@ -64,9 +65,9 @@ export default {
       line-height: 16px;
       text-align: center;
       /* 全局主标题灰色 */
-      color: #888CA1;
+      color: #888ca1;
     }
-    .b1{
+    .b1 {
       margin-top: 20px;
       width: 100%;
       height: 44px;
@@ -79,7 +80,7 @@ export default {
       /* identical to box height, or 100% */
 
       text-align: center;
-      color: #FFFFFF;
+      color: #ffffff;
     }
   }
 }

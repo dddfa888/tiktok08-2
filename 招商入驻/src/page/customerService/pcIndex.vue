@@ -41,7 +41,7 @@
               <div class="flex" :class="item.send_receive === 'send' ? 'justify-end' : ''">
                 <template v-if="item.send_receive === 'receive'">
                   <img
-                    :src="itemname == 'FamilyShop' ? require(`@/assets/image/${itemname}/sevice.png`) :itemname =='TikTok'? require(`@/assets/image/${itemname}/logo.png`): require(`@/assets/image/${itemname}/logo.svg`)"
+                    :src="itemname == 'FamilyShop' ? require(`@/assets/image/${itemname}/sevice.png`) :itemname =='TikTok'? require(`@/assets/image/${itemname}/${itemname}logo.png`): require(`@/assets/image/${itemname}/logo.svg`)"
                     class="w-44 h-44 mr-10"
                   />
                   <div
@@ -121,6 +121,10 @@ export default {
     isShow: {
       type: Boolean,
       default: false
+    },
+    token: {
+      type: String,
+      default: ""
     }
   },
   data() {
