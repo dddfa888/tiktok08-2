@@ -1,0 +1,1 @@
+import{be as e,bf as s}from"./index-55507c28.js";const o=()=>e({url:"/wap/seller/orders!list-returns.action",method:s.POST}),a=r=>e({url:"/wap/seller/orders!details-returns.action",method:s.POST,data:r}),n=r=>e({url:"/wap/api/order!listGoods.action",method:s.POST,params:r});export{o as _,a as d,n as o};

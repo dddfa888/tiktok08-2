@@ -106,7 +106,7 @@
         </div>
         <img class="image_reversed" :src="images.arrow1" alt />
       </div>
-      <div
+      <!--<div
         class="loan-content"
         :style="{ 'background-image': 'url(' + images.loanBg + ')' }"
         @click="$router.push('/loan')"
@@ -117,7 +117,7 @@
           <p>{{ $t("贷款申请") }}</p>
         </div>
         <img class="image_reversed" :src="images.arrow1" alt />
-      </div>
+      </div>-->
       <div class="nav-content">
         <div
           v-for="(item, index) in navData"
