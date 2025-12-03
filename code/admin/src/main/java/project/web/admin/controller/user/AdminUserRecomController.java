@@ -22,6 +22,7 @@ import project.party.PartyService;
 import project.party.model.Party;
 import project.party.model.UserRecom;
 import project.web.admin.service.user.AdminUserRecomService;
+import security.SecUser;
 import security.internal.SecUserService;
 
 /**
@@ -102,43 +103,72 @@ public class AdminUserRecomController extends PageActionSupport {
 	 */
 	@RequestMapping(action + "toUpdate.action")
 	public ModelAndView toUpdate(HttpServletRequest request) {
+
 		String id = request.getParameter("id");
 		String username = request.getParameter("username");
 		String name_para = request.getParameter("name_para");
 		String partyId = request.getParameter("partyId");
-		
+
 		ModelAndView modelAndView = new ModelAndView();
 
 		try {
 
 			String reco_username = "";
 			String reco_usercode = "";
-			
-			UserRecom userRecom = this.adminUserRecomService.get(id);			
+
+			UserRecom userRecom = this.adminUserRecomService.get(id);
+
 			if (userRecom != null) {
-				username = this.secUserService.findUserByPartyId(userRecom.getPartyId()).getUsername();
-				reco_username = this.secUserService.findUserByPartyId(userRecom.getReco_id()).getUsername();
-				reco_usercode = this.partyService.cachePartyBy(userRecom.getReco_id(), true).getUsercode();
+
+				// ------- 主用户 -------
+				SecUser mainUser = this.secUserService.findUserByPartyId(userRecom.getPartyId());
+				if (mainUser != null) {
+					username = mainUser.getUsername();
+				} else {
+					// 记录日志方便排查
+					logger.warn("主用户不存在，partyId=" + userRecom.getPartyId());
+					username = "";
+				}
+
+				// ------- 推荐人用户 -------
+				SecUser recoUser = this.secUserService.findUserByPartyId(userRecom.getReco_id());
+				if (recoUser != null) {
+					reco_username = recoUser.getUsername();
+				} else {
+					logger.warn("推荐人不存在，reco_id=" + userRecom.getReco_id());
+					reco_username = "";
+				}
+
+				// ------- 推荐人 usercode -------
+				Party recoParty = this.partyService.cachePartyBy(userRecom.getReco_id(), true);
+				if (recoParty != null) {
+					reco_usercode = recoParty.getUsercode();
+				} else {
+					logger.warn("推荐人 party 数据不存在，reco_id=" + userRecom.getReco_id());
+					reco_usercode = "";
+				}
 			}
 
+			// 回填页面字段
 			modelAndView.addObject("id", id);
 			modelAndView.addObject("username", username);
 			modelAndView.addObject("reco_username", reco_username);
 			modelAndView.addObject("reco_usercode", reco_usercode);
 			modelAndView.addObject("name_para", name_para);
 			modelAndView.addObject("partyId", partyId);
-			
+
 		} catch (BusinessException e) {
 			modelAndView.addObject("error", e.getMessage());
 			modelAndView.setViewName("redirect:/" + action + "list.action");
 			return modelAndView;
+
 		} catch (Throwable t) {
 			logger.error(" error ", t);
 			modelAndView.addObject("error", "[ERROR] " + t.getMessage());
 			modelAndView.setViewName("redirect:/" + action + "list.action");
 			return modelAndView;
 		}
-		
+
 		modelAndView.setViewName("user_recom_update");
 		return modelAndView;
 	}
