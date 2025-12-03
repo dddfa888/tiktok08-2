@@ -1317,4 +1317,5 @@ module.exports = {
   请输入邮箱或手机号: "Voer asseblief e-pos of selfoonnommer in",
   邮箱或手机号: "E-pos of selfoonnommer",
   注册: "Registreer",
+  "充值请联系客服":"Kontak asseblief kliëntediens vir herlaai"
 };

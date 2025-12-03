@@ -1340,4 +1340,5 @@ module.exports = {
   请输入邮箱或手机号: "Bitte geben Sie Ihre E-Mail oder Telefonnummer ein.",
   邮箱或手机号: "E-Mail oder Telefonnummer",
   注册: "Registrieren",
+  充值请联系客服: "Bitte kontaktieren Sie den Passagier",
 };

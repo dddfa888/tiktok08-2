@@ -1298,4 +1298,5 @@ module.exports = {
   请输入邮箱或手机号: "Lütfen bir e-posta veya hücre numarası girin",
   邮箱或手机号: "Mailbox veya hücre numarası",
   注册: "Kayıt olmak",
+  "充值请联系客服": "Lütfen yolcu ile iletişime geçin",
 };

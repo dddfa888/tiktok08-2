@@ -29,7 +29,11 @@
         </div>
       </div>
       <div v-if="nextLevelObj" class="level-progress">
-        <div
+        <div class="progress">
+          <div class="txt" style="left: 50%">{{ `${t('店铺信誉分')} ${shopInfo.creditScore}` }}</div>
+          <div class="line" :style="{ width: shopInfo.creditScore + '%' }"></div>
+        </div>
+        <!--<div
           v-if="currentLevelObj.name"
           class="name"
           :style="{ 'background-image': 'url(' + getLevelIconImg(currentLevelObj.name) + ')' }"
@@ -37,13 +41,13 @@
         <div class="progress">
           <div class="txt" :style="{'left': gapProgress}">{{ gapProgress }}</div>
           <div class="line" :style="{'width': gapProgress}"></div>
-        </div>
+        </div>-->
         <!--<div
           class="name"
           :style="{ 'background-image': 'url(' + getLevelIconImg(nextLevelObj.name) + ')' }"
         >{{ nextLevelObj.name }}</div>-->
       </div>
-      <div class="level-number-content">
+      <!--<div class="level-number-content">
         <p
           v-if="nextLevelObj"
           v-html="t('当前运行资金，距离等级还需', {money: numberStrFormat(storeMoneyRechargeAcc), level: nextLevelObj.name, money1: numberStrFormat(Number(nextLevelObj.rechargeAmountCnd) - Number(storeMoneyRechargeAcc))})"
@@ -66,7 +70,7 @@
           </p>
           <van-icon name="arrow" color="#ffffff" />
         </div>
-      </div>
+      </div>-->
       <van-cell-group inset>
         <van-cell>
           <template #title>
@@ -144,7 +148,7 @@
       </van-cell-group>
 
       <!-- 首冲奖励、邀请送礼金活动 -->
-      <div v-if="showRward || showInvite" class="award-content">
+      <!-- <div v-if="showRward || showInvite" class="award-content">
         <van-swipe class="my-swipe" :autoplay="5000" indicator-color="white">
           <van-swipe-item v-if="showRward && rwardsInfo.length">
             <div class="first-content">
@@ -214,11 +218,11 @@
             </div>
           </van-swipe-item>
         </van-swipe>
-      </div>
+      </div>-->
 
-      <!-- 贷款申请 -->
-      <div class="single-banner-content mt-4">
-        <!-- <div v-if="loanShow" class="single-banner-content mt-4"> -->
+      <!-- 贷款申请-->
+      <!--<div class="single-banner-content mt-4">
+         <div v-if="loanShow" class="single-banner-content mt-4"> 
         <div
           :style="{ 'background-image': 'url(' + loanImg.bg + ')' }"
           class="banner-content"
@@ -230,7 +234,7 @@
           </div>
           <van-icon name="arrow" />
         </div>
-      </div>
+      </div>-->
 
       <div class="mt-4" :class="{ 'is-ar-cell-group': isArLang }">
         <van-cell-group inset>
@@ -461,6 +465,28 @@
               </div>
             </template>
           </van-cell>
+          <!--用户-->
+          <van-cell is-link @click="tobuy">
+            <template #title>
+              <div class="flex items-center">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.2759 1.10048C10.0438 0.966506 9.75794 0.966506 9.52589 1.10048L2.375 5.22905C2.14295 5.36303 2 5.61062 2 5.87857V14.1357C2 14.4037 2.14295 14.6513 2.375 14.7852L9.52589 18.9138C9.75794 19.0478 10.0438 19.0478 10.2759 18.9138L17.4268 14.7852C17.6588 14.6513 17.8018 14.4037 17.8018 14.1357V5.87857C17.8018 5.61062 17.6588 5.36303 17.4268 5.22905L10.2759 1.10048ZM3.5 13.7027V6.31158L9.90089 2.61603L16.3018 6.31158V13.7027L9.90089 17.3983L3.5 13.7027ZM7.55418 10.0071C7.55418 8.71123 8.60471 7.6607 9.90061 7.6607C11.1965 7.6607 12.247 8.71123 12.247 10.0071C12.247 11.303 11.1965 12.3536 9.90061 12.3536C8.60471 12.3536 7.55418 11.303 7.55418 10.0071ZM9.90061 6.1607C7.77628 6.1607 6.05418 7.88281 6.05418 10.0071C6.05418 12.1315 7.77628 13.8536 9.90061 13.8536C12.0249 13.8536 13.747 12.1315 13.747 10.0071C13.747 7.88281 12.0249 6.1607 9.90061 6.1607Z"
+                    fill="#333333"
+                  />
+                </svg>
+                <div class="color-333" :class="isArLang ? 'mr-2' : 'ml-2'">{{ t('用户') }}</div>
+              </div>
+            </template>
+          </van-cell>
         </van-cell-group>
       </div>
     </div>
@@ -482,6 +508,8 @@ import { langData } from '@/views/language/config'
 import cloneDeep from 'lodash.clonedeep'
 import { numberStrFormat, openPage, getImg } from '@/utils'
 import { needChangeMode } from '@/config'
+import { useShopInfoStore } from '@/store/user'
+import { storeToRefs } from 'pinia'
 
 import {
   receiveBonus,
@@ -495,6 +523,8 @@ const { toClipboard } = useClipboard()
 const { t, locale } = useI18n()
 const userStore = useUserStore()
 const router = useRouter()
+const shopInfoStore = useShopInfoStore()
+const { shopInfo } = storeToRefs(shopInfoStore)
 
 const modeType = import.meta.env.MODE
 const colorMode = needChangeMode.includes(modeType) ? modeType : 'main'
@@ -509,6 +539,10 @@ const currentLang = computed(() => {
   const itemObj = data.find((item) => item.key === locale.value)
   return itemObj ? itemObj.title : locale.value
 })
+
+const tobuy = () => {
+  window.open(`${window.location.origin}/wap`)
+}
 
 const mode = import.meta.env.MODE
 const isHive = mode === 'hive'
@@ -1176,6 +1210,7 @@ nextTick(() => {
   display: flex;
   align-items: center;
   margin-top: 25px;
+  margin-bottom: 25px;
   position: relative;
   > .progress {
     flex: 1;
@@ -1202,6 +1237,9 @@ nextTick(() => {
       line-height: 1;
       top: -26px;
       transform: translateX(-50%);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       &::after {
         content: '';
         display: block;

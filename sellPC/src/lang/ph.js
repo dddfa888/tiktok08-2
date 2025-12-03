@@ -1357,4 +1357,5 @@ module.exports = {
   请输入邮箱或手机号: "Pakilagay ang email o numero ng telepono",
   邮箱或手机号: "Email o numero ng telepono",
   注册: "Mag -register",
+  "充值请联系客服": "Mangyaring makipag-ugnayan sa customer service para sa pag-recharge.",
 };

@@ -1,6 +1,13 @@
 <template>
   <div class="relative z-30 footer">
-    <van-tabbar route v-model="active" :active-color="themeColor[colorMode]" fixed safe-area-inset-bottom>
+    <van-tabbar
+      class="tablist"
+      route
+      v-model="active"
+      :active-color="themeColor[colorMode]"
+      fixed
+      safe-area-inset-bottom
+    >
       <van-tabbar-item name="shop" to="/shop">
         <span>{{ t('footerShop') }}</span>
         <template #icon="props">
@@ -13,7 +20,12 @@
           <img :src="props.active ? icon.product.active : icon.product.inactive" />
         </template>
       </van-tabbar-item>
-      <van-tabbar-item name="order" to="/order" :badge="badgeNum" :class="{'hide-badge': !badgeNum}">
+      <van-tabbar-item
+        name="order"
+        to="/order"
+        :badge="badgeNum"
+        :class="{'hide-badge': !badgeNum}"
+      >
         <span>{{ t('footerOrder') }}</span>
         <template #icon="props">
           <img :src="props.active ? icon.order.active : icon.order.inactive" />
@@ -30,10 +42,10 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { useI18n } from "vue-i18n";
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { themeColor, needChangeMode } from '@/config'
-import { useOrderStore } from "@/store/order.js";
+import { useOrderStore } from '@/store/order.js'
 import { getImg } from '@/utils'
 const { t } = useI18n()
 const active = ref('home')
@@ -52,25 +64,29 @@ const badgeNum = computed(() => {
 const icon = {
   shop: {
     active: getImg(`imgs/footer/${colorMode}/shop-active.png`),
-    inactive: getImg('imgs/footer/shop-inactive.png'),
+    inactive: getImg('imgs/footer/shop-inactive.png')
   },
   product: {
     active: getImg(`imgs/footer/${colorMode}/product-active.png`),
-    inactive: getImg('imgs/footer/product-inactive.png'),
+    inactive: getImg('imgs/footer/product-inactive.png')
   },
   order: {
     active: getImg(`imgs/footer/${colorMode}/order-active.png`),
-    inactive: getImg('imgs/footer/order-inactive.png'),
+    inactive: getImg('imgs/footer/order-inactive.png')
   },
   home: {
     active: getImg(`imgs/footer/${colorMode}/home-active.png`),
-    inactive: getImg('imgs/footer/home-inactive.png'),
+    inactive: getImg('imgs/footer/home-inactive.png')
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
+.tablist {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
 :deep(.van-tabbar-item__text) {
   font-size: 12px;
 }

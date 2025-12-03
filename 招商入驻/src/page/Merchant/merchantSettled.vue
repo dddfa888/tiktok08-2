@@ -99,19 +99,24 @@
             </div>
             <div class="tc_wrap" @scroll="handleScroll" v-else>
               <div class="tc" ref="capture" id="originHtml">
-                <p class="title">{{ $t("capture_tit") }}</p>
-                <p class="padding-tb">{{ $t("capture_info") }}</p>
-                <p class="padding-tb">{{ $t("capture_info1") }}</p>
-                <p class="padding-tb">{{ $t("capture_info2") }}</p>
-                <p>{{ $t("capture_info3") }}</p>
-                <p>{{ $t("capture_info4") }}</p>
-                <p>{{ $t("capture_info5") }}</p>
-                <p>{{ $t("capture_info6") }}</p>
-                <p>{{ $t("capture_info7") }}</p>
-                <p class="padding-tb">{{ $t("capture_info8") }}</p>
-                <p>{{ $t("capture_info9") }}</p>
-                <p>{{ $t("capture_info10") }}</p>
-                <p v-if="itemname !== 'AntMall'">
+                <p class="title">{{ $t("TikTok 互联网跨境电商免费加盟商店合同") }}</p>
+                <p>{{ $t("鉴于甲方提供跨境电商平台服务，乙方有意向加入并使用甲方的跨境电商平台开展商品销售活动，双方本着平等自愿、合作共赢的原则，经协商一致，达成如下合同条款：") }}</p>
+                <p class="padding-tb">{{ $t("一、合同目的") }}</p>
+                <p>{{ $t("甲方提供互联网跨境电商平台及相关服务、乙方同意通过甲方平台开展跨境电商业务，销售商品并承担相应的经营风险。") }}</p>
+                <p class="padding-tb">{{ $t("二、加盟方式") }}</p>
+                <p>{{ $t("1.乙方以免费加盟的方式加入甲方平台开展电商业务，甲方不收取加盟费或入驻费用，但可能涉及其他相关服务费用（如平台佣金、广告推广费用等》。") }}</p>
+                <p>{{ $t("2.乙方应当通守甲方的相关平台规则、商品管理规范及其他业务要求。") }}</p>
+                <p class="padding-tb">{{ $t("三、甲方责任") }}</p>
+                <p>{{ $t("1.甲方提供平台支持，包括不限于商品上传、订单管理、支付结算等。") }}</p>
+                <p>{{ $t("2.甲方应当为乙方提供必要的培训、技术支持及相关市场推广支持。") }}</p>
+                <p>{{ $t("3.甲方提供跨境电商的相关物流、支付渠道、海关清关等服务。") }}</p>
+                <p class="padding-tb">{{ $t("四、乙方义务") }}</p>
+                <p>{{ $t("1.乙方应当按照甲方的规定，上传合法合规的商品，不得销售任何违法商品或侵犯他人知识产权的商品。") }}</p>
+                <p>{{ $t("2.乙方需自行负责商品采购、库存管理、售后服务等业务事项。") }}</p>
+                <p>{{ $t("3.乙方应当确保其经营活动符合法律法规及甲方的相关政策，若因乙方经营行为引发的法律纠纷，乙方应自行承担责任。") }}</p>
+                <p>{{ $t("4.乙方应当配合甲方提供的培训及使用平台的技术工具。") }}</p>
+
+                <!--<p v-if="itemname !== 'AntMall'">
                   {{
                   $t("capture_info11", {
                   time:
@@ -129,12 +134,35 @@
                   "3.乙方需48小时内处理订单，否则将被扣除店铺信誉分，需重新缴纳保证金."
                   )
                   }}
-                </p>
-                <p class="padding-tb">{{ $t("capture_info12") }}</p>
-                <p>{{ $t("capture_info13") }}</p>
-                <p>{{ $t("capture_info14") }}</p>
-                <p>{{ $t("capture_info15") }}</p>
-                <p>{{ $t("capture_info16") }}</p>
+                </p>-->
+                <p class="padding-tb">{{ $t("五、费用和结算") }}</p>
+                <p>{{ $t("平台费用：甲方根据乙方销售额收取一定比例的佣金（具体比例依据甲方的标准费用政策)。") }}</p>
+                <p>{{ $t("结算方式：乙方每月的销售额将在3-7天内结算，甲方将在结算后的[时间]内将乙方的应收款项支付至乙方指定的账户。乙方不得在平台上销售违反平台规定或法律法规的商品，否则甲方有权根据规定扣除或不支付部分或全部款项。") }}</p>
+
+                <p class="padding-tb">{{ $t("六、知识产权") }}</p>
+                <p>{{ $t("1.乙方确认，在使用甲方平台时，甲方平台及其相关服务的知识产权归甲方所有。") }}</p>
+                <p>{{ $t("2.乙方在平台上销售的商品应当不侵犯第三方的知识产权，乙方应当对其所售商品的知识产权状况负责。") }}</p>
+
+                <p class="padding-tb">{{ $t("七、保密条款") }}</p>
+                <p>{{ $t("双方在本合同履行过程中知悉的对方商业秘密、技术资料及其他保密信息应予保密，未经对方书面同意，不得泄露给第三方。") }}</p>
+
+                <p class="padding-tb">{{ $t("八、争议解决") }}</p>
+                <p>{{ $t("1.本合同的履行、解释及争议解决适用美国法律。") }}</p>
+                <p>{{ $t("2.双方因本合同产生的任何争议，应首先通过友好协商解决：若协商不成，任何一方可提交甲方所在地人民法院诉讼解决。") }}</p>
+
+                <p class="padding-tb">{{ $t("九、乙方贵任") }}</p>
+                <p>{{ $t("1.乙方需要提供商品成本并维护商场的买方(客户关系）。") }}</p>
+                <p>{{ $t("2.乙方保证良好的个人信用。") }}</p>
+                <p>{{ $t("3.乙方必须在24小时内处理订单。") }}</p>
+
+                <p class="padding-tb">{{ $t("十、违约条款") }}</p>
+                <p>{{ $t("1.若透特殊情况，应由双方协商并达成一致解决方案。") }}</p>
+                <p>{{ $t("2.由于政策影响，特殊情况或经营状况不佳造成的问题，由乙方单独负责。") }}</p>
+                <p>{{ $t("3.双方必须严格遵守合同条款，任何乙方违约是，需承担相应的责任或进行赔偿。") }}</p>
+
+                <p class="padding-tb">{{ $t("十一.合同生效。") }}</p>
+                <p>{{ $t("本合同自双方签暑之日起生效。") }}</p>
+
                 <p v-if="itemname == 'Argos'">{{ $t("argos_bottom") }}</p>
                 <div class="esign-content">
                   <div>
@@ -206,7 +234,7 @@
                   class="button"
                   :class="scrollDisbled && 'van-button--disabled'"
                   :readonly="scrollDisbled"
-                  v-if="sellerSign"
+                  v-if="!scrollDisbled"
                 >{{ $t("同意并签名") }}</van-button>
               </div>
               <van-button
@@ -219,9 +247,8 @@
             </div>
           </div>
         </van-popup>
-        <!-- <div v-if="step == 1">
-
-          <div class="bottom">
+        <div v-if="step == 1">
+          <!--<div class="bottom">
             <van-checkbox v-model="checked">
               {{ $t("我已经阅读并同意") }}
               <span class="color-yellow">{{ $t("入驻协议") }}</span>
@@ -231,10 +258,9 @@
               color="var(--color-main)"
               class="button"
               @click="stepFun"
-              >{{ $t("同意") }}</van-button
-            >
-          </div>
-        </div>-->
+            >{{ $t("同意") }}</van-button>
+          </div>-->
+        </div>
         <!-- step2 -->
         <div v-if="step == 2">
           <van-swipe
@@ -460,7 +486,7 @@
                     />
                     <div class="tips">{{ $t("证件反面") }}</div>
                   </div>
-                  <div
+                  <!--<div
                     class="uploder-two-wrap"
                     v-if="
                       itemname !== 'Inchoi' &&
@@ -477,10 +503,10 @@
                       :max-count="1"
                     />
                     <div class="tips">{{ $t("手持证件照") }}</div>
-                  </div>
+                  </div>-->
                 </div>
               </el-form-item>
-              <el-form-item :label="$t('拍摄示例')">
+              <!--<el-form-item :label="$t('拍摄示例')">
                 <div class="correct-warp">
                   <img src="@/assets/image/Merchant/01.png" />
                   <img src="@/assets/image/Merchant/02.png" />
@@ -493,7 +519,7 @@
                     "
                   />
                 </div>
-              </el-form-item>
+              </el-form-item>-->
               <p
                 v-if="
                   itemname !== 'SM-wholesale shop' && itemname !== 'FamilyShop'
@@ -668,14 +694,14 @@
             </el-form>
           </div>
           <div class="bottom">
-            <!--            <div style="display: flex; justify-items: start">
-              <van-checkbox v-model="checked" @click="open">
-                {{ $t("我已经阅读并同意") }}
-              </van-checkbox>
-              <span class="color-yellow" @click="show = true">{{
+            <div style="display: flex; justify-items: start">
+              <van-checkbox v-model="checked" @click="open">{{ $t("我已经阅读并同意") }}</van-checkbox>
+              <span class="color-yellow" @click="show = true">
+                {{
                 $t("入驻协议")
-              }}</span>
-            </div>-->
+                }}
+              </span>
+            </div>
 
             <!-- <van-button type="primary" color="var(--color-main)" v-if="step == 1" class="button" @click="stepFun()">{{ $t('同意') }}
             </van-button>-->
@@ -1174,9 +1200,10 @@ export default {
     },
     async getType() {
       const res = await getSignType();
-      console.log("res ->", res.sellerSign);
-      this.sellerSign = res.sellerSign == "false" ? false : true;
-      console.log("this.sellerSign ->", this.sellerSign);
+      this.sellerSign = res.sellerSign; // 直接用布尔值
+      // console.log("res ->", res.sellerSign);
+      // this.sellerSign = res.sellerSign == "false" ? false : true;
+      // console.log("this.sellerSign ->", this.sellerSign);
     },
     //  inputHandler(){
     //     this.ruleForm.sellerName = this.ruleForm.sellerName.replace(/[^\w\u0080-\uFFFF]/g, '');
@@ -1211,10 +1238,10 @@ export default {
     },
     clickTip() {
       console.log("3434 ->", 3434);
-      // this.$message({
-      //     message: this.$t("请仔细阅读合同"),
-      //     type: "warning",
-      // });
+      this.$message({
+        message: this.$t("请仔细阅读合同"),
+        type: "warning"
+      });
     },
     // 保存
     save() {
@@ -1246,7 +1273,7 @@ export default {
       } else {
         this.show = false;
         this.checked = true;
-        // this.getImg();
+        this.getImg();
       }
     },
     dataURLtoBlob(dataurl) {
@@ -1363,12 +1390,11 @@ export default {
       const { scrollTop, clientHeight, scrollHeight } = e.target;
       console.log(scrollTop, clientHeight, scrollHeight);
       if (scrollTop + clientHeight + 2 >= scrollHeight) {
-        // alert('滚动到底部啦')
+        // alert("滚动到底部啦");
         this.scrollDisbled = false;
       }
     },
     open() {
-      // console.log('this.checked ->', this.checked);
       if (this.checked == true) {
         this.checked = false;
       }
@@ -1384,8 +1410,8 @@ export default {
         this.visible = true;
       }
 
-      // this.show=false;
-      // this.checked=true;
+      // this.show = false;
+      // this.checked = true;
     },
     closeAgreement() {
       this.show = false;
@@ -1469,17 +1495,17 @@ export default {
       }
       // }
 
-      if (
-        this.itemname !== "Inchoi" &&
-        this.itemname !== "Hive" &&
-        this.itemname !== "AntMall"
-        // && this.itemname !== 'TikTok'
-      ) {
-        if (!this.ruleForm.idimg_3) {
-          Toast(this.$t("请上传证件照片"));
-          return;
-        }
-      }
+      // if (
+      //   this.itemname !== "Inchoi" &&
+      //   this.itemname !== "Hive" &&
+      //   this.itemname !== "AntMall"
+      //   // && this.itemname !== 'TikTok'
+      // ) {
+      //   if (!this.ruleForm.idimg_3) {
+      //     Toast(this.$t("请上传证件照片"));
+      //     return;
+      //   }
+      // }
       if (!this.checked) {
         Toast(this.$t("请同意入驻协议"));
         return;

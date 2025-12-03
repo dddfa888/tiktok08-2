@@ -1320,4 +1320,5 @@ module.exports = {
   请输入邮箱或手机号: "Vui lòng nhập email hoặc số điện thoại",
   邮箱或手机号: "Hộp thư hoặc số điện thoại di động",
   注册: "Đăng ký",
+  充值请联系客服: "Vui lòng liên hệ dịch vụ khách hàng để nạp tiền.",
 };

@@ -1316,4 +1316,5 @@ module.exports = {
   请输入邮箱或手机号: "Silakan masukkan suatu email atau nomor sel",
   邮箱或手机号: "Kotak surat atau nomor sel",
   注册: "Daftar",
+  充值请联系客服: "Tolong hubungi penumpang",
 };

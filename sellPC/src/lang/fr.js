@@ -1336,4 +1336,5 @@ module.exports = {
   请输入邮箱或手机号: "Veuillez saisir un courriel ou un numéro de cellule",
   邮箱或手机号: "Boîte aux lettres ou numéro de cellule",
   注册: "S'inscrire",
+  充值请联系客服: "Veuillez contacter le service client pour la recharge",
 };
