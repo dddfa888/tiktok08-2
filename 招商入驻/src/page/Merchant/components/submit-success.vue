@@ -7,31 +7,33 @@
     <div class="success-but-wrap">
       <div class="but but-one" @click="openUrl(2)">{{ $t('联系客服') }}</div>
       <div class="but but-two" @click="openUrl(1)">{{ $t('去登录') }}</div>
-
     </div>
     <div class="step-wrap1">
       <ul>
         <li>
           <div class="step-img">
-            <div  :class="[status === 0 ? 'span-success' : 'span-pidding']"></div>
+            <div :class="[status === 0 ? 'span-success' : 'span-pidding']"></div>
           </div>
           <div class="text">{{ $t('提交申请表') }}</div>
         </li>
         <li>
           <div class="step-img">
-            <div  :class="[status === 1 ? 'span-success' : 'span-pidding']"></div>
+            <div :class="[status === 1 ? 'span-success' : 'span-pidding']"></div>
           </div>
           <div class="text">{{ $t('背景审计') }}</div>
         </li>
         <li>
           <div class="step-img">
-            <div  :class="[status === 2 ? 'span-success' : 'span-pidding']"></div>
+            <div :class="[status === 2 ? 'span-success' : 'span-pidding']"></div>
           </div>
           <div class="text">{{ $t('成为店主') }}</div>
         </li>
       </ul>
     </div>
-    <div class="advertise-img" v-if="itemname !== 'Sam-wholesaleShop' && itemname !== 'Sky City' && itemname !== 'Azedi'&& itemname !== 'SM-wholesale shop' && itemname !== 'FamilyShop' && itemname !== 'INT Overstock'&& itemname !== 'EShop'">
+    <div
+      class="advertise-img"
+      v-if="itemname !== 'Sam-wholesaleShop' && itemname !== 'Sky City' && itemname !== 'Azedi'&& itemname !== 'SM-wholesale shop' && itemname !== 'FamilyShop' && itemname !== 'INT Overstock'&& itemname !== 'EShop'"
+    >
       <img src="@/assets/image/Merchant/advertise.jpg" />
     </div>
     <div class="advertise-img" v-if="itemname == 'SM-wholesale shop'">
@@ -43,7 +45,7 @@
     <div class="advertise-img" v-if="itemname == 'INT Overstock'">
       <img src="@/assets/image/Merchant/int-banner.png" />
     </div>
-   <div class="advertise-img" v-if="itemname == 'EShop'">
+    <div class="advertise-img" v-if="itemname == 'EShop'">
       <img src="@/assets/image/Merchant/EShop-banner.jpg" />
     </div>
     <div class="advertise-img" v-if="itemname == 'Azedi'">
@@ -56,96 +58,89 @@
       <img src="@/assets/image/Sam_banner.png" />
     </div>
     <div class="tc" v-if="sellerSign">
-              <p class="padding-tb">
-               {{$t('s1')}}
-              </p>
-              <p>
-                <!-- {{ $t("rzTitle1info") }} -->
-                 {{$t('s2',{ name: itemname })}}
-              </p>
-              <p>
-                <!-- {{ $t("rzTitle1info1") }} -->
-                 {{$t('s3')}}
-              </p>
-              <p> {{$t('s4')}}</p>
-              <p>
-                <!-- {{ $t("rzTitle1info2") }} -->
-                {{$t('s5')}}
-              </p>
-              <p>
-                {{$t('s6')}}
-              </p>
-              <p>
-                 {{$t('s7')}}
-              </p>
-              <p> {{$t('s8')}}</p>
-              <p> {{$t('s9')}}</p>
-              <p> {{$t('s10')}}</p>
-              <!-- <p class="padding-tb">{{ $t("rzTitle2") }}</p> -->
+      <p class="padding-tb">{{$t('s1')}}</p>
+      <p>
+        <!-- {{ $t("rzTitle1info") }} -->
+        {{$t('s2',{ name: itemname })}}
+      </p>
+      <p>
+        <!-- {{ $t("rzTitle1info1") }} -->
+        {{$t('s3')}}
+      </p>
+      <p>{{$t('s4')}}</p>
+      <p>
+        <!-- {{ $t("rzTitle1info2") }} -->
+        {{$t('s5')}}
+      </p>
+      <p>{{$t('s6')}}</p>
+      <p>{{$t('s7')}}</p>
+      <p>{{$t('s8')}}</p>
+      <p>{{$t('s9')}}</p>
+      <p>{{$t('s10')}}</p>
+      <!-- <p class="padding-tb">{{ $t("rzTitle2") }}</p> -->
 
-
-
-
-              <p class="padding-tb"> {{$t('s11')}}</p>
-              <p>
-                <!-- {{ $t("rzTitle2info", { name: itemname }) }} -->
-                {{$t('s12')}}
-              </p>
-              <p>
-                <!-- {{ $t("rzTitle2info1") }} -->
-                {{$t('s13')}}
-              </p>
-              <p>
-                <!-- {{ $t("rzTitle2info2") }} -->
-                 {{$t('s14')}}
-              </p>
-              <!-- <p>
+      <p class="padding-tb">{{$t('s11')}}</p>
+      <p>
+        <!-- {{ $t("rzTitle2info", { name: itemname }) }} -->
+        {{$t('s12')}}
+      </p>
+      <p>
+        <!-- {{ $t("rzTitle2info1") }} -->
+        {{$t('s13')}}
+      </p>
+      <p>
+        <!-- {{ $t("rzTitle2info2") }} -->
+        {{$t('s14')}}
+      </p>
+      <!-- <p>
               {{ $t("rzTitle2info3") }}
-            </p> -->
-              <!-- <p class="padding-tb">{{ $t("rzTitle3") }}</p> -->
-              <p class="padding-tb"> {{$t('s15')}}</p>
-              <p>
-                <!-- {{ $t("rzTitle3info") }} -->
-                {{$t('s16',{ name: itemname })}}
-              </p>
-              <p>
-                <!-- {{ $t("rzTitle3info1") }} -->
-                {{$t('s17')}}
-              </p>
-              <p>
-                <!-- {{ $t("rzTitle3info2") }} -->
-                {{$t('s18')}}
-              </p>
-              <p> {{$t('s19',{ name: itemname })}}</p>
-              <p> {{$t('s20')}}</p>
-              <p> {{$t('s21')}}</p>
-              <!-- <p class="padding-tb">{{ $t("rzTitle4") }}</p> -->
-              <!-- <p>
+      </p>-->
+      <!-- <p class="padding-tb">{{ $t("rzTitle3") }}</p> -->
+      <p class="padding-tb">{{$t('s15')}}</p>
+      <p>
+        <!-- {{ $t("rzTitle3info") }} -->
+        {{$t('s16',{ name: itemname })}}
+      </p>
+      <p>
+        <!-- {{ $t("rzTitle3info1") }} -->
+        {{$t('s17')}}
+      </p>
+      <p>
+        <!-- {{ $t("rzTitle3info2") }} -->
+        {{$t('s18')}}
+      </p>
+      <p>{{$t('s19',{ name: itemname })}}</p>
+      <p>{{$t('s20')}}</p>
+      <p>{{$t('s21')}}</p>
+      <!-- <p class="padding-tb">{{ $t("rzTitle4") }}</p> -->
+      <!-- <p>
               {{ $t("rzTitle4info") }}
 
             </p>
             <p>
               {{ $t("rzTitle4info1") }}
-            </p> -->
-            </div>
-    <Service :isShow='isShow' @show='closeService'/>
+      </p>-->
+    </div>
+    <Service :isShow="isShow" @show="closeService" />
   </div>
 </template>
 
 <script>
-
 // import { Toast } from "vant";
-import Service from '@/page/customerService/pcIndex.vue'
-  import {is_mobile} from '@/utils/utis'
-  import {apiGetCustomerService} from "@/API/home.js";
+import Service from "@/page/customerService/pcIndex.vue";
+import { is_mobile } from "@/utils/utis";
+import { apiGetCustomerService } from "@/API/home.js";
 import { getStatus } from "@/API/commodity";
-import { HOST_URL } from '@/config'
+import { HOST_URL } from "@/config";
 export default {
-  name: 'submitSuccess',
-  components:{Service},
+  name: "submitSuccess",
+  components: { Service },
   props: {
     sellerSign: {
       default: false
+    },
+    token: {
+      default: ""
     }
   },
   data() {
@@ -153,71 +148,71 @@ export default {
       itemname: process.env.VUE_APP_ITEM_NAME,
       status: 0,
       screenWidth: document.body.clientWidth,
-      labelPosition: 'top',
-      isShow:false,
-      onlinePath:'',
+      labelPosition: "top",
+      isShow: false,
+      onlinePath: "",
       HOST_URL
-    }
+    };
   },
-  computed: {
-
-  },
+  computed: {},
   created() {
     // this.getStatusInfo()
 
     if (this.screenWidth >= 500) {
-      this.labelPosition = "left"
+      this.labelPosition = "left";
     } else {
-      this.labelPosition = "top"
+      this.labelPosition = "top";
     }
-    this.getOnlinePath()
+    this.getOnlinePath();
   },
   methods: {
-     async getOnlinePath() {
-      let res = await apiGetCustomerService({code:'customer_service_url'});
-      this.onlinePath = res.customer_service_url
+    async getOnlinePath() {
+      let res = await apiGetCustomerService({ code: "customer_service_url" });
+      this.onlinePath = res.customer_service_url;
     },
     //查询店铺申请进度
     getStatusInfo() {
-      getStatus({}).then((res) => {
-        this.status = res.status
-      })
+      getStatus({}).then(res => {
+        this.status = res.status;
+      });
     },
-    closeService(val){
-        this.isShow = val
-      },
+    closeService(val) {
+      this.isShow = val;
+    },
     openUrl(index) {
       switch (index) {
         case 1:
-          if (this.labelPosition=="left"){
-            window.location.href = location.origin+"/ww"
+          if (this.labelPosition == "left") {
+            window.location.href = location.origin + "/ww";
             // window.location.href = location.origin+"/ww"
           }
-          if (this.labelPosition=="top"){
-            if(parent !== window){
-              window.open(parent.location.origin+"/www")
-            }else{
-              window.location.href = location.origin+"/www"
+          if (this.labelPosition == "top") {
+            if (parent !== window) {
+              window.open(parent.location.origin + "/www");
+            } else {
+              window.location.href = location.origin + "/www";
             }
-
           }
 
           break;
-          case 2:
-            if(this.itemname == 'FamilyShop'){
-              im_create_iframe_client.open();
-              return
-            }
-             if (this.onlinePath) {
-              window.open(
-                this.onlinePath,
-                "_blank"
-              );
-              }else if (is_mobile()) {
-                this.$router.push("/customerServiceIndex");
-              } else {
-                this.isShow = true;
-              }
+        case 2:
+          if (this.itemname == "FamilyShop") {
+            im_create_iframe_client.open();
+            return;
+          }
+          if (this.onlinePath) {
+            window.open(this.onlinePath, "_blank");
+            // } else if (is_mobile()) {
+            //   this.$router.push(`/customerServiceIndex`, {
+            //     query: { token: this.token }
+            //   });
+          } else {
+            // this.isShow = true;
+            // this.$router.push(`/customerServiceIndex`, {
+            //   query: { token: this.token }
+            // });
+            console.log("联系客服路径未配置");
+          }
 
           break;
         default:
@@ -225,103 +220,102 @@ export default {
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .submit-success-wrap {
-  width: 1200Px;
-  border: 1px solid #EEEEEE;
-  border-radius: 4Px;
+  width: 1200px;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
   margin: 0 auto;
-  padding-bottom: 30Px;
-  margin-bottom: 30Px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
   background: #fff;
   .wanc {
-    margin-top: 70Px;
+    margin-top: 70px;
 
     img {
-      width: 100Px;
-      height: 100Px;
+      width: 100px;
+      height: 100px;
       display: block;
       margin: 0 auto;
     }
   }
 
   .title {
-    font-size: 16Px;
+    font-size: 16px;
     color: #333333;
-    line-height: 22Px;
-    width: 700Px;
+    line-height: 22px;
+    width: 700px;
     margin: 0 auto;
     text-align: center;
-    margin-top: 40Px;
+    margin-top: 40px;
   }
 
   .success-but-wrap {
     display: flex;
     justify-content: center;
-    margin-top: 70Px;
+    margin-top: 70px;
     cursor: pointer;
     .but {
-      width: 255Px;
-      height: 50Px;
-      border-radius: 4Px;
+      width: 255px;
+      height: 50px;
+      border-radius: 4px;
       text-align: center;
-      line-height: 50Px;
-      font-size: 16Px;
+      line-height: 50px;
+      font-size: 16px;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .but-one {
-      border: 1px solid #EEEEEE;
+      border: 1px solid #eeeeee;
       color: #333333;
     }
 
     .but-two {
       background: var(--color-main);
       color: #fff;
-      margin-left: 40Px;
+      margin-left: 40px;
     }
   }
 
   .step-wrap1 {
-    margin-top: 100Px;
+    margin-top: 100px;
 
     ul {
       display: flex;
       justify-content: center;
 
       li {
-        width: 280Px;
+        width: 280px;
         position: relative;
 
         .step-img {
-          height: 55Px;
+          height: 55px;
           display: flex;
           align-items: center;
 
           .span-success {
-            width: 34Px;
-            height: 34Px;
-            background: url('@/assets/image/public/wanc.png');
+            width: 34px;
+            height: 34px;
+            background: url("@/assets/image/public/wanc.png");
             background-size: 100% 100%;
             margin: 0 auto;
           }
 
           .span-pidding {
-            width: 28Px;
-            height: 28Px;
-            background: url('@/assets/image/Merchant/wanc2.png');
+            width: 28px;
+            height: 28px;
+            background: url("@/assets/image/Merchant/wanc2.png");
             background-size: 100% 100%;
             margin: 0 auto;
           }
-
         }
 
         .text {
-          font-size: 16Px;
+          font-size: 16px;
           color: #333333;
           text-align: center;
         }
@@ -329,34 +323,34 @@ export default {
 
       li:not(:last-child) {
         &::after {
-          background: #EEEEEE;
+          background: #eeeeee;
           position: absolute;
-          content: '';
+          content: "";
           right: 0;
           top: 40%;
-          width: 110Px;
-          height: 2Px;
+          width: 110px;
+          height: 2px;
         }
       }
 
       li:not(:first-child) {
         &::before {
-          background: #EEEEEE;
+          background: #eeeeee;
           position: absolute;
-          content: '';
+          content: "";
           left: 0;
           top: 40%;
-          width: 110Px;
-          height: 2Px;
+          width: 110px;
+          height: 2px;
         }
       }
     }
   }
 
   .advertise-img {
-    width: 938Px;
+    width: 938px;
     margin: 0 auto;
-    margin-top: 40Px;
+    margin-top: 40px;
 
     img {
       width: 100%;
@@ -364,32 +358,33 @@ export default {
   }
 }
 
-@media screen and (max-width:500Px) {
-  .tc{
+@media screen and (max-width: 500px) {
+  .tc {
     width: auto !important;
   }
   .submit-success-wrap {
     width: 100% !important;
 
     .wanc {
-      margin-top: 70Px;
+      margin-top: 70px;
 
-      img {}
+      img {
+      }
     }
 
     .title {
-      font-size: 16Px;
+      font-size: 16px;
       color: #333333;
-      line-height: 22Px;
+      line-height: 22px;
       margin: 0 auto;
       width: 100%;
       text-align: center;
-      margin-top: 40Px;
+      margin-top: 40px;
     }
 
     .success-but-wrap {
       display: block;
-      margin-top: 70Px;
+      margin-top: 70px;
 
       .but {
         width: 80%;
@@ -399,33 +394,31 @@ export default {
       .but-two {
         background: var(--color-main);
         color: #fff;
-        margin-left: 40Px;
-        margin-top: 20Px;
-
+        margin-left: 40px;
+        margin-top: 20px;
       }
     }
 
     .step-wrap1 {
-      margin-top: 30Px;
+      margin-top: 30px;
 
       ul {
         display: block !important;
 
         li {
-          width: 280Px;
+          width: 280px;
           position: relative;
           margin: 0 auto;
-          margin-top: 20Px;
+          margin-top: 20px;
 
           .step-img {
-            height: 55Px;
+            height: 55px;
             display: flex;
             align-items: center;
-
           }
 
           .text {
-            font-size: 16Px;
+            font-size: 16px;
             color: #333333;
             text-align: center;
           }
@@ -433,13 +426,13 @@ export default {
 
         li {
           &::after {
-            height: 0Px !important;
+            height: 0px !important;
           }
         }
 
         li {
           &::before {
-            height: 0Px !important;
+            height: 0px !important;
           }
         }
       }
@@ -447,31 +440,28 @@ export default {
 
     .advertise-img {
       width: 90% !important;
-
     }
   }
-
 }
-.tc{
+.tc {
   padding: 0 20px;
-  width: 938Px;
-    margin: 0 auto;
-    p {
-          font-family: "PingFang HK";
-          font-style: normal;
-          font-size: 14px;
-          // line-height: 20px;
-          color: #333333;
-          padding: 6px 0;
-        }
-    .padding-tb {
-      color: #333333;
-      font-weight: 600;
-  padding: 10px 0 !important;
-  img {
-    width: 84px;
+  width: 938px;
+  margin: 0 auto;
+  p {
+    font-family: "PingFang HK";
+    font-style: normal;
+    font-size: 14px;
+    // line-height: 20px;
+    color: #333333;
+    padding: 6px 0;
   }
-
+  .padding-tb {
+    color: #333333;
+    font-weight: 600;
+    padding: 10px 0 !important;
+    img {
+      width: 84px;
+    }
+  }
 }
-  }
 </style>

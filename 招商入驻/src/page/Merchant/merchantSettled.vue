@@ -716,7 +716,7 @@
           </div>
         </div>
         <!-- step3 -->
-        <submit-success :sellerSign="sellerSign" v-else></submit-success>
+        <submit-success :sellerSign="sellerSign" :token="token" v-else></submit-success>
       </div>
     </div>
     <mer-chant-footer></mer-chant-footer>
@@ -793,6 +793,7 @@ export default {
 
       // esignImg: "",
       tabIndex: 0,
+      token: "",
       isCrop: false,
       visible: false,
       itemname: process.env.VUE_APP_ITEM_NAME,
@@ -810,7 +811,7 @@ export default {
       showUpLoader: true,
       step: 2,
       show: false,
-      checked: true,
+      checked: false,
       screenWidth: document.body.clientWidth,
       type: "Email", //Email/Moblie
       uploadCheckIndex: 1,
@@ -1543,13 +1544,18 @@ export default {
               sellerAddress: this.ruleForm.sellerAddress,
               idimg_0: this.ruleForm.idimg_0,
               sellerName: this.ruleForm.sellerName
-            }).then(res => {
-              console.log("res ->", res);
-              this.step = 3;
-              this.$el
-                .querySelector("#product")
-                .scrollIntoView({ behavior: "smooth" });
-            });
+            })
+              .then(res => {
+                console.log("res ->", res);
+                this.step = 3;
+                this.$el
+                  .querySelector("#product")
+                  .scrollIntoView({ behavior: "smooth" });
+                this.token = res.token;
+              })
+              .catch(err => {
+                console.log(err);
+              });
           } else if (
             valid &&
             (this.itemname == "SM-wholesale shop" ||
@@ -1578,12 +1584,18 @@ export default {
               // verifcode: this.ruleForm.verifcode,
               idimg_0: this.ruleForm.idimg_0,
               whatsApp: this.AppAreaCode + " " + this.ruleForm.whatsappAcc
-            }).then(() => {
-              this.step = 3;
-              this.$el
-                .querySelector("#product")
-                .scrollIntoView({ behavior: "smooth" });
-            });
+            })
+              .then(res => {
+                this.step = 3;
+                this.$el
+                  .querySelector("#product")
+                  .scrollIntoView({ behavior: "smooth" });
+                console.log("res111 ->", res);
+                this.token = res.token;
+              })
+              .catch(err => {
+                console.log(err);
+              });
           } else {
             return false;
           }
