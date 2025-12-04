@@ -1,1 +1,0 @@
-import{_ as t,k as c,m as _,o as a,c as o,a as r}from"./index-55507c28.js";const n={class:"iframe-content"},l=["src"],d={__name:"index",setup(i){const e=c(),s=_(()=>e.customer_service_url||"");return(u,m)=>(a(),o("div",n,[r("iframe",{src:s.value,class:"flex-1"},null,8,l)]))}},x=t(d,[["__scopeId","data-v-aa9c0240"]]);export{x as default};

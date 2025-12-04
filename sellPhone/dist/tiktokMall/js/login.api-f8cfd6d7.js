@@ -1,1 +1,0 @@
-import{be as t,bf as a}from"./index-55507c28.js";const o=e=>t({url:"/wap/api/localuser!registerNoVerifcode.action",method:a.POST,data:e}),s=e=>t({url:"/wap/api/user!newlogin.action",method:a.POST,data:e}),n=e=>t({url:"/wap/api/idcode!execute.action",method:a.POST,data:e}),i=e=>t({url:"/wap/api/cms!get.action",method:"get",data:e});export{o as _,n as a,i as b,s as n};
