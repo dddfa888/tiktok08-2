@@ -97,7 +97,7 @@
         style="font-size: 14px"
       />
       <!--        <img src="@/assets/image/service/send.png" class="w-34 h-34" @click="send('text', value)"/>-->
-      <div class="fasong" @click="send('text')">{{ $t("发送") }}</div>
+      <div class="fasong" @click="send('text', message)">{{ $t("发送") }}</div>
     </div>
   </div>
 </template>
@@ -318,15 +318,15 @@ export default {
       // 返回
       this.$router.go(-1);
     },
-    send(type = "text") {
+    send(type = "text", content = "") {
       // 发送消息, img 也当消息text
       // console.log("fasong");
       // console.log(content);
-      if (!this.message.trim()) {
+      if (!content) {
         this.$toast(this.$t("请输入消息内容"));
         return;
       }
-      _sendMsg(type, this.message, this.token_url).then(data => {
+      _sendMsg(type, content, this.token_url).then(data => {
         console.log(data);
         this.message = "";
         // document.getElementById('bottom').click()
