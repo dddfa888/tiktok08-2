@@ -29,10 +29,11 @@
               v-if="showTime(index)"
               style="font-size: 14px"
             >
-              {{
+              <!--{{
               $formatZoneDate(item.createtime) &&
               $formatZoneDate(item.createtime.split(" ")[0])
-              }}
+              }}-->
+              {{ $formatZoneDate(item.createtime)}}
             </p>
             <div class="flex" :class="item.send_receive === 'send' ? 'justify-end' : ''">
               <template v-if="item.send_receive === 'receive'">
@@ -90,13 +91,13 @@
       </van-uploader>
       <input
         type="text"
-        v-model="value"
+        v-model="message"
         :placeholder="$t('请输入您的消息...')"
         class="flex-1 mx-20 h-full border-none"
         style="font-size: 14px"
       />
       <!--        <img src="@/assets/image/service/send.png" class="w-34 h-34" @click="send('text', value)"/>-->
-      <div class="fasong" @click="send('text', value)">{{ $t("发送") }}</div>
+      <div class="fasong" @click="send('text')">{{ $t("发送") }}</div>
     </div>
   </div>
 </template>
@@ -120,7 +121,7 @@ export default {
   data() {
     return {
       list: [],
-      value: "",
+      message: "",
       lastMsgId: "",
       itemname: process.env.VUE_APP_ITEM_NAME,
       interval: null,
@@ -137,7 +138,11 @@ export default {
       activeLang: "language"
     })
   },
+  mounted() {
+    this.fetchList();
+  },
   created() {
+    this.fetchList();
     this.count = localStorage.getItem("avater");
 
     // console.log('this.userAvatar ->', this.count);
@@ -158,7 +163,6 @@ export default {
         this.handleSetLang("en-US");
       }
     }
-    this.fetchList();
     const model = navigator.userAgent;
     // 判断是否是安卓手机，是则是true
     this.androidAttrs =
@@ -176,6 +180,22 @@ export default {
       // 预览
       ImagePreview([url]);
     },
+    // showTime(index) {
+    //   if (!this.list || !this.list.length) return false;
+
+    //   // 第一条一定显示时间
+    //   if (index === 0) return true;
+
+    //   const curItem = this.list[index];
+    //   const prevItem = this.list[index - 1];
+
+    //   if (!curItem || !prevItem) return false;
+
+    //   const curDate = curItem.createtime.split(" ")[0];
+    //   const prevDate = prevItem.createtime.split(" ")[0];
+
+    //   return curDate !== prevDate; // 日期不同就显示时间
+    // },
     showTime(index) {
       // 时间显示
       if (index === 0) {
@@ -298,17 +318,17 @@ export default {
       // 返回
       this.$router.go(-1);
     },
-    send(type = "text", content = "") {
+    send(type = "text") {
       // 发送消息, img 也当消息text
       // console.log("fasong");
       // console.log(content);
-      if (!content) {
+      if (!this.message.trim()) {
         this.$toast(this.$t("请输入消息内容"));
         return;
       }
-      _sendMsg(type, content, this.token_url).then(data => {
+      _sendMsg(type, this.message, this.token_url).then(data => {
         console.log(data);
-        this.value = "";
+        this.message = "";
         // document.getElementById('bottom').click()
         this.fetchList();
       });

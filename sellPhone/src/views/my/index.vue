@@ -19,14 +19,14 @@
             </div>
           </div>
         </div>
-        <div v-if="currentLevelObj" class="level-info">
-          <!--<img :src="currentLevelObj.icon" alt />-->
+        <!--<div v-if="currentLevelObj" class="level-info">
+         <img :src="currentLevelObj.icon" alt />
           <div
             v-if="currentLevelObj.name"
             :class="currentLevelObj.name"
             class="txt"
           >{{ `${t('等级')} ${currentLevelObj.name}` }}</div>
-        </div>
+        </div>-->
       </div>
       <div v-if="nextLevelObj" class="level-progress">
         <div class="progress">

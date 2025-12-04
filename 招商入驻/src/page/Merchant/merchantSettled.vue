@@ -1215,6 +1215,7 @@ export default {
     goback() {
       this.$refs.esign.reset();
       this.visible = false;
+      this.checked = false;
     },
     spaceDete() {
       this.ruleForm.sellerName = this.ruleForm.sellerName.trimLeft();
@@ -1257,6 +1258,7 @@ export default {
           this.visible = false;
         })
         .catch(err => {
+          console.log("err ->", err);
           // 画布没有签字时会执行这里 'Not Signned'
           // this.$message.error("您还未完成签字，请签字完成后保存");
           Toast(this.$t("请签字后再提交"));
@@ -1266,14 +1268,14 @@ export default {
       if (this.sellerSign) {
         if (this.resultImg) {
           this.show = false;
-          this.checked = true;
+          this.checked = false;
           this.getImg();
         } else {
           Toast(this.$t("请签字后再提交"));
         }
       } else {
         this.show = false;
-        this.checked = true;
+        this.checked = false;
         this.getImg();
       }
     },
@@ -1396,10 +1398,11 @@ export default {
       }
     },
     open() {
+      // 当弹层关闭后，不允许显示，所以一起置为 false
       if (this.checked == true) {
-        this.checked = false;
+        this.show = true;
       }
-      this.checked = false;
+      // this.checked = false;
       if (this.checked == false) {
         this.show = false;
       }
@@ -1411,8 +1414,8 @@ export default {
         this.visible = true;
       }
 
-      // this.show = false;
-      // this.checked = true;
+      this.show = false;
+      this.checked = true;
     },
     closeAgreement() {
       this.show = false;
@@ -1490,10 +1493,10 @@ export default {
     sellerRegister() {
       // console.log("this.ruleForm.sellerImg ->", this.ruleForm.sellerImg);
       // if (this.itemname !== 'TikTok'){
-      if (!this.ruleForm.idimg_1 || !this.ruleForm.idimg_2) {
-        Toast(this.$t("请上传证件照片"));
-        return;
-      }
+      // if (!this.ruleForm.idimg_1 || !this.ruleForm.idimg_2) {
+      //   Toast(this.$t("请上传证件照片"));
+      //   return;
+      // }
       // }
 
       // if (

@@ -232,10 +232,10 @@ export default {
           name: this.$t("message.home.merchantSettled"),
           path: "/merchantSettled"
         },
-        {
-          name: this.$t("message.home.creditTit"),
-          path: "/credit"
-        }
+        // {
+        //   name: this.$t("message.home.creditTit"),
+        //   path: "/credit"
+        // }
       ];
       // if (this.itemname !== "Mbuy") {
       //   arr.push({
