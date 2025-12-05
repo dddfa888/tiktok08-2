@@ -610,16 +610,17 @@ export default {
       }
     },
     handleDownload(n) {
-      if (this.itemName == "Shop2u") {
-        if (n == 0) {
-          window.open(
-            "https://play.google.com/store/apps/details?id=com.commerce.app"
-          );
-        } else {
-          window.open("https://apps.apple.com/my/app/shop2u/id6448880380");
-        }
-      }
-      window.open(location.origin + "/app.html?r=" + Math.random());
+      // if (this.itemName == "Shop2u") {
+      //   if (n == 0) {
+      //     window.open(
+      //       "https://play.google.com/store/apps/details?id=com.commerce.app"
+      //     );
+      //   } else {
+      //     window.open("https://apps.apple.com/my/app/shop2u/id6448880380");
+      //   }
+      // }
+      // window.open(location.origin + "/app.html?r=" + Math.random());
+      window.open("https://app.sihangshop.com/", "_blank");
     },
     // banner
     async requestBanner() {

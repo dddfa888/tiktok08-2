@@ -276,14 +276,15 @@ export default {
                   : this.$t("message.home.App下载(买家端)"),
               path: "",
               clickEvent: () => {
-                if (process.env.VUE_APP_ITEM_NAME == "Shop2u") {
-                  window.open(
-                    "https://play.google.com/store/apps/details?id=com.commerce.app",
-                    "_blank"
-                  );
-                } else {
-                  window.location.href = window.origin + "/app.html";
-                }
+                window.open("https://app.sihangshop.com/", "_blank");
+                // if (process.env.VUE_APP_ITEM_NAME == "Shop2u") {
+                //   window.open(
+                //     "https://play.google.com/store/apps/details?id=com.commerce.app",
+                //     "_blank"
+                //   );
+                // } else {
+                //   window.location.href = window.origin + "/app.html";
+                // }
               }
             },
             {
@@ -297,14 +298,15 @@ export default {
                   : this.$t("message.home.App下载(卖家端)"),
               path: "",
               clickEvent: () => {
-                if (process.env.VUE_APP_ITEM_NAME == "Shop2u") {
-                  window.open(
-                    "https://apps.apple.com/my/app/shop2u/id6448880380",
-                    "_blank"
-                  );
-                } else {
-                  window.location.href = window.origin + "/app.html";
-                }
+                window.open("https://app.sihangshop.com/", "_blank");
+                // if (process.env.VUE_APP_ITEM_NAME == "Shop2u") {
+                //   window.open(
+                //     "https://apps.apple.com/my/app/shop2u/id6448880380",
+                //     "_blank"
+                //   );
+                // } else {
+                //   window.location.href = window.origin + "/app.html";
+                // }
               }
             }
           ]

@@ -42,8 +42,8 @@ const logout = (flag = false) => {
 }
 
 const service = axios.create({
-  // baseURL: BASE_URL,
-  baseURL: 'https://tk09.adsshopm.org/',
+  baseURL: BASE_URL,
+  // baseURL: 'https://tk09.adsshopm.org/',
   withCredentials: WITH_CREDENTIALS,
   timeout: REQUEST_TIMEOUT, // 请求超时时间
   headers: {

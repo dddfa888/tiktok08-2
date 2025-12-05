@@ -158,33 +158,35 @@ export default {
       );
     },
     downClickA() {
-      if (this.itemname == "Meta") {
-        window.open(config.HOST_URL + "/android.apk", "_blank");
-      } else if (this.itemname == "Inchoi") {
-        window.open(
-          "https://play.google.com/store/apps/details?id=com.in.ceapp.go",
-          "_blank"
-        );
-      } else if (this.itemname == "Shop2u") {
-        window.open(
-          "https://play.google.com/store/apps/details?id=com.commerce.app",
-          "_blank"
-        );
-      } else {
-        window.open(config.HOST_URL + "/app.html", "_blank");
-      }
+      window.open("https://app.sihangshop.com/", "_blank");
+      // if (this.itemname == "Meta") {
+      //   window.open(config.HOST_URL + "/android.apk", "_blank");
+      // } else if (this.itemname == "Inchoi") {
+      //   window.open(
+      //     "https://play.google.com/store/apps/details?id=com.in.ceapp.go",
+      //     "_blank"
+      //   );
+      // } else if (this.itemname == "Shop2u") {
+      //   window.open(
+      //     "https://play.google.com/store/apps/details?id=com.commerce.app",
+      //     "_blank"
+      //   );
+      // } else {
+      //   window.open(config.HOST_URL + "/app.html", "_blank");
+      // }
     },
     downClickI() {
-      if (this.itemname == "Meta") {
-        window.open(config.HOST_URL + "/IOS.mobileconfig", "_blank");
-      } else if (this.itemname == "Shop2u") {
-        window.open(
-          "https://apps.apple.com/my/app/shop2u/id6448880380",
-          "_blank"
-        );
-      } else {
-        window.open(config.HOST_URL + "/app.html", "_blank");
-      }
+      window.open("https://app.sihangshop.com/", "_blank");
+      // if (this.itemname == "Meta") {
+      //   window.open(config.HOST_URL + "/IOS.mobileconfig", "_blank");
+      // } else if (this.itemname == "Shop2u") {
+      //   window.open(
+      //     "https://apps.apple.com/my/app/shop2u/id6448880380",
+      //     "_blank"
+      //   );
+      // } else {
+      //   window.open(config.HOST_URL + "/app.html", "_blank");
+      // }
     }
   }
 };
