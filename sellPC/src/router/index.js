@@ -199,12 +199,12 @@ export const constantRoutes = [
         name: "shopSetting",
         meta: { title: "店铺设置", icon: "el-icon-s-tools" },
       },
-      {
-        path: "promotion",
-        component: () => import("@/views/other/promotion"),
-        name: "promotion",
-        meta: { title: "创业联盟", icon: "el-icon-s-flag" },
-      },
+      // {
+      //   path: "promotion",
+      //   component: () => import("@/views/other/promotion"),
+      //   name: "promotion",
+      //   meta: { title: "创业联盟", icon: "el-icon-s-flag" },
+      // },
       ///destroyAccount
       {
         path: "destroyAccount",
